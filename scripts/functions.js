@@ -97,5 +97,5 @@ function viewShoppingCart() {
     }
 }
 function showShoppingCart(objProduct) {
-    alert(objProduct.productName);
+    document.getElementById("dspShoppingCart").innerHTML += objProduct.productName + "<br>";
 }
