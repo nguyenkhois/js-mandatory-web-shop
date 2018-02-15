@@ -1,0 +1,77 @@
+/* For mobile devices - Common definitions */
+*{box-sizing: border-box;}
+body{font-family: Arial;margin: 0;padding: 0;}
+header, main, footer{width: 100%;}
+main{padding: 5px;}
+
+#container{margin: auto;padding: 0;display: flex;flex-direction: column;align-items: center;}
+
+/* Menu */
+#menu{position: relative;display:inline-block;height: 35px;}
+#menu:hover #menu-content{visibility: visible;}
+#menu:hover .three-lines{margin: 0;padding: 0;}
+#menu:hover #three-lines-1{transform: rotate(90deg);}
+#menu:hover #three-lines-3{visibility: hidden;}
+
+#menu-content{height: 20px;position: absolute;list-style: none;margin: 0;padding: 0;visibility: hidden;}
+
+#three-lines-1{transition: transform 0.5s ease;}
+#three-lines{height: 28px;width:40px;margin-top: 10px;cursor: pointer;}
+.three-lines{background: #686868;width: 25px;height: 2px;padding: 0;margin: 6px;}
+
+.menu-items{background: #112945;width:190px;margin: 0;padding: 10px;float: left;}
+.menu-items:hover {background: #2d6aa5;cursor: pointer;color: #111111;}
+.menu-items:hover a{color: #111111;}
+
+.menu-items a{color: #a0a0a0;text-decoration: none;}
+.menu-items a:hover{color: #111111;text-decoration: underline;}
+/* End of menu */
+
+/* Products */
+.main_title{font-weight: bold;font-size: 30px;}
+.product{
+    width: 400px;
+    height: 550px;
+    float: left;
+    margin: 20px;
+    text-align: center;
+}
+.product_title{font-weight: bold;font-size: 20px}
+.product_price{font-weight: bold;color: #2d6aa5;font-size: 20px;}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.button_buy {
+    background-color: white;
+    color: black;
+    border: 2px solid #2d6aa5;
+    position: center;
+    bottom: 10px;
+}
+.button_buy:hover {
+    background-color: #2d6aa5;
+    color: white;
+}
+
+.footer{background: #2d6aa5;}
+.footer_text{text-align: center;color: #fcfcfc;}
+/* For screen size are over 768px */
+@media only screen and (min-width: 768px){
+    #container{max-width: 100%px;}
+    #menu{width: 100%;}
+    #menu-content{visibility: visible;position: relative;}
+    #three-lines{display: none;}
+}
+
