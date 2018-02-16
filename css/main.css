@@ -78,6 +78,11 @@ main{padding: 5px;}
 .cartItem{
 
 }
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 /* End of checkout */
 
 .footer{background: #2d6aa5;}
