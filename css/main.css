@@ -39,6 +39,7 @@ main{padding: 5px;}
 .product_title{font-weight: bold;font-size: 20px}
 .product_price{font-weight: bold;color: #2d6aa5;font-size: 20px;}
 
+/* Buttons */
 .button {
     background-color: #4CAF50; /* Green */
     border: none;
@@ -54,7 +55,7 @@ main{padding: 5px;}
     cursor: pointer;
 }
 .button_buy {
-    background-color: white;
+    background-color: #ffffff;
     color: black;
     border: 2px solid #2d6aa5;
     position: center;
@@ -63,6 +64,17 @@ main{padding: 5px;}
 .button_buy:hover {
     background-color: #2d6aa5;
     color: white;
+}
+.button_order {
+    background-color: #2d6aa5;
+    color: #ffffff;
+    border: 2px solid #2d6aa5;
+    position: center;
+    bottom: 10px;
+}
+.button_order:hover {
+    background-color: #ffffff;
+    color: #000000;
 }
 
 /* Checkout */
@@ -74,12 +86,47 @@ main{padding: 5px;}
 }
 #tbShoppingCart th,#tbShoppingCart td{
     border: 1px solid #686868;
+    height: 30px;
 }
 .cartItem{
 
 }
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
+.cartItem input[type="number"]{
+    width: 50px;
+}
+#tbCheckout{margin: auto;width: 800px;}
+#tbCheckout td{
+    padding: 5px;
+}
+.checkoutInput{
+    /* Clear the user's operating system's theme */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    /* Apply own styles */
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+
+    width: 90%;
+    height: 30px;
+}
+.checkoutInput:focus{
+    border: 1px solid #0094ff;
+    box-shadow: 0 0 5px #0094ff;
+}
+.checkoutComments{
+    width: 90%;
+    height: 150px;
+}
+.required{color: #ff0000;}
+
+#txtZipCode::-webkit-outer-spin-button,
+#txtZipCode::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }

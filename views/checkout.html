@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Shopping</title>
+    <title>Simple webshop</title>
     <link rel="stylesheet" href="../css/web-addons.css">
     <link rel="stylesheet" href="../css/main.css">
 </head>
@@ -48,42 +48,42 @@
                         </tr>
                         <tr>
                             <td><label for="txtFirstname">First name</label></td>
-                            <td><input id="txtFirstname" type="text">*</td>
+                            <td><input id="txtFirstname" type="text" class="checkoutInput"><span class="required">*</span></td>
                         </tr>
                         <tr>
                             <td><label for="txtLastname">Last name</label></td>
-                            <td><input id="txtLastname" type="text">*</td>
+                            <td><input id="txtLastname" type="text" class="checkoutInput"><span class="required">*</span></td>
                         </tr>
                         <tr>
                             <td><label for="txtEmail">Email</label></td>
-                            <td><input id="txtEmail" type="email">*</td>
+                            <td><input id="txtEmail" type="email" class="checkoutInput"><span class="required">*</span></td>
                         </tr>
                         <tr>
                             <td><label for="txtPhoneNumber">Phone number</label></td>
-                            <td><input id="txtPhoneNumber" type="tel"></td>
+                            <td><input id="txtPhoneNumber" type="tel" class="checkoutInput"></td>
                         </tr>
                         <tr>
                             <td><label for="txtAddress">Street address</label></td>
-                            <td><input id="txtAddress" type="text">*</td>
+                            <td><input id="txtAddress" type="text" class="checkoutInput"><span class="required">*</span></td>
                         </tr>
                         <tr>
                             <td><label for="txtZipCode">Zip code</label></td>
-                            <td><input id="txtZipCode" type="number">*</td>
+                            <td><input id="txtZipCode" type="number" class="checkoutInput"><span class="required">*</span></td>
                         </tr>
                         <tr>
                             <td><label for="txtCity">City</label></td>
-                            <td><input id="txtCity" type="text">*</td>
+                            <td><input id="txtCity" type="text" class="checkoutInput"><span class="required">*</span></td>
                         </tr>
                         <tr>
                             <td><label for="txtComments">Comments</label></td>
-                            <td><textarea name="" id="txtComments" cols="30" rows="10"></textarea></td>
+                            <td><textarea name="" id="txtComments" class="checkoutInput checkoutComments"></textarea></td>
                         </tr>
                         <tr>
                             <td></td>
-                            <td><button id="btnCheckout" class="button button_buy">Checkout</button></td>
+                            <td><button id="btnCheckout" class="button button_order">Checkout</button></td>
                         </tr>
                         <tr>
-                            <td colspan="2">(*) Required information</td>
+                            <td colspan="2">(<span class="required">*</span>) Required information</td>
                         </tr>
                     </table>
                 </article>

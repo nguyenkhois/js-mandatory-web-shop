@@ -19,9 +19,9 @@ function showShoppingCart(objProduct) {
     let spItem = document.createElement("tr");
     spItem.setAttribute("class","cartItem");
     spItem.innerHTML = "<td>"+objProduct.productName+"</td>"
-        + "<td>1</td>"
+        + "<td><input type='number' value='1'></td>"
         + "<td>"+objProduct.productPrice+"</td>"
-        + "<td>X</td>";
+        + "<td>Delete</td>";
 
     let parentElement = document.getElementById("tbShoppingCart");
     parentElement.appendChild(spItem);
@@ -48,6 +48,10 @@ function limitKeyPressNumber() {
         return true;
     }
 }
+function validationEmailAddress(sEmail) {
+    let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return emailPattern.test(sEmail);
+}
 function validationUserForm(){
     if (uFirstname.value === "" || uFirstname.value.length < 3){
         alert("First name must have and between 3-100 characters!");
@@ -57,8 +61,8 @@ function validationUserForm(){
         alert("Last name must have and between 3-100 characters!");
         uLastname.focus();
         return false;
-    }else if (uEmail.value === "" || uEmail.value.length < 5){
-        alert("Email must have and between 5-50 characters!");
+    }else if (uEmail.value === "" || validationEmailAddress(uEmail.value) === false || uEmail.value.length < 5){
+        alert("Email must have and between 5-50 characters! Example: example@domain.xyz");
         uEmail.focus();
         return false;
     }else if(uPhoneNumber.value !== "" && uPhoneNumber.value.length < 6){
@@ -102,7 +106,7 @@ uFirstname.addEventListener("keypress",function () {limitInputLength("txtFirstna
 uLastname.addEventListener("keypress",function () {limitInputLength("txtLastname",100);});
 uEmail.addEventListener("keypress",function () {limitInputLength("txtEmail",50);});
 
-uPhoneNumber.addEventListener("keypress",limitKeyPressNumber);
+/*uPhoneNumber.addEventListener("keypress",limitKeyPressNumber);*/
 uPhoneNumber.addEventListener("keydown",function () {limitInputLength("txtPhoneNumber",20);});
 
 uAddress.addEventListener("keypress",function () {limitInputLength("txtAddress",200);});
