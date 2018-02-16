@@ -65,6 +65,21 @@ main{padding: 5px;}
     color: white;
 }
 
+/* Checkout */
+#dspCheckout{margin-top: 50px;}
+#tbShoppingCart{
+    border: 1px solid #686868;
+    border-collapse: collapse;
+    width: 100%;
+}
+#tbShoppingCart th,#tbShoppingCart td{
+    border: 1px solid #686868;
+}
+.cartItem{
+
+}
+/* End of checkout */
+
 .footer{background: #2d6aa5;}
 .footer_text{text-align: center;color: #fcfcfc;}
 /* For screen size are over 768px */
