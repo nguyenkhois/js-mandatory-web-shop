@@ -77,15 +77,11 @@ let btnCheckout = document.getElementById("btnCheckout");
 uFirstname.addEventListener("keypress",function () {limitInputLength("txtFirstname",100);});
 uLastname.addEventListener("keypress",function () {limitInputLength("txtLastname",100);});
 uEmail.addEventListener("keypress",function () {limitInputLength("txtEmail",50);});
-
 uPhoneNumber.addEventListener("keydown",forceKeyPressNumber);
 uPhoneNumber.addEventListener("keypress",function () {limitInputLength("txtPhoneNumber",20);});
-
 uAddress.addEventListener("keypress",function () {limitInputLength("txtAddress",200);});
-
 uZipCode.addEventListener("keydown",forceKeyPressNumber);
 uZipCode.addEventListener("keypress",function () {limitInputLength("txtZipCode",10);});
-
 uCity.addEventListener("keypress",function () {limitInputLength("txtCity",50);});
 uComments.addEventListener("keypress",function () {limitInputLength("txtComments",1000);});
 
