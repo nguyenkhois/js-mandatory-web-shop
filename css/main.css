@@ -111,7 +111,7 @@ main{padding: 5px;}
 @media only screen and (min-width: 768px){
     #container{max-width: 100%;}
     #menu{width: 100%;}
-    #menu-content{visibility: visible;position: relative;}
+    #menu-content{visibility: visible;margin: 0;}
     #three-lines{display: none;}
     .miniTitle{display: none;}
     #tbCheckout{width: 700px;}
