@@ -40,12 +40,25 @@ function validationUserForm(){
         alert("City must have and between 2-50");
         uCity.focus();
         return false;
+    }else if(uComments.value.length >= 1 && uComments.value.length < 10){
+        alert("Comments must have more than 10 characters");
+        uComments.focus();
+        return false;
     }else{
         alert("SUCCEED! Your order has been sent!");
         return true;
     }
 }
-
+function forceKeyPressNumber() {
+    let userKeyPress = window.event ? event.which : event.keyCode;
+    if (userKeyPress !== 8){
+        if (userKeyPress < 48 || userKeyPress > 57){
+            event.preventDefault(); //stop the key press
+            return false;
+        }
+    }else
+        return true;
+}
 //MAIN
 viewShoppingCart();
 
@@ -64,9 +77,15 @@ let btnCheckout = document.getElementById("btnCheckout");
 uFirstname.addEventListener("keypress",function () {limitInputLength("txtFirstname",100);});
 uLastname.addEventListener("keypress",function () {limitInputLength("txtLastname",100);});
 uEmail.addEventListener("keypress",function () {limitInputLength("txtEmail",50);});
-uPhoneNumber.addEventListener("keydown",function () {limitInputLength("txtPhoneNumber",20);});
+
+uPhoneNumber.addEventListener("keydown",forceKeyPressNumber);
+uPhoneNumber.addEventListener("keypress",function () {limitInputLength("txtPhoneNumber",20);});
+
 uAddress.addEventListener("keypress",function () {limitInputLength("txtAddress",200);});
+
+uZipCode.addEventListener("keydown",forceKeyPressNumber);
 uZipCode.addEventListener("keypress",function () {limitInputLength("txtZipCode",10);});
+
 uCity.addEventListener("keypress",function () {limitInputLength("txtCity",50);});
 uComments.addEventListener("keypress",function () {limitInputLength("txtComments",1000);});
 
