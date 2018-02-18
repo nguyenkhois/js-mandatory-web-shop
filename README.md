@@ -3,10 +3,13 @@
 
 ## Changelog
 ### Version 1.2 (2018-02-18)
-* Fix bugs
+* Improved shopping cart module
+* Fix bugs in CSS
+* Work better with mobile device (the screen is under 768px)
+* Improved JS code for speed and effect
 
 ### Version 1.1 (2018-02-17)
-* Improved module shopping cart
+* Improved shopping cart module
 * Fix bugs in order form
 
 ### Version 1.0 (2018-02-16)

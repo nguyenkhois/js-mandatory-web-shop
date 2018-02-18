@@ -1,52 +1,11 @@
-function viewShoppingCart() {
-    let jsonShoppingCart = retrieveShoppingCart();
-    let objShoppingCart = JSON.parse(jsonShoppingCart);
-
-    let arrShoppingCart = [];
-
-    let i;
-    for (i in objShoppingCart){
-        arrShoppingCart.push(objShoppingCart[i]);
-    }
-
-    let j;
-    let arrShoppingCartLength = arrShoppingCart.length;
-    for (j = 0; j < arrShoppingCartLength; j++){
-        showShoppingCart(arrShoppingCart[j]);
-    }
-}
-function showShoppingCart(objProduct) {
-    let spItem = document.createElement("tr");
-    spItem.setAttribute("class","cartItem");
-    spItem.innerHTML = "<td>"+objProduct.productName+"</td>"
-        + "<td><input type='number' value='1'></td>"
-        + "<td>"+objProduct.productPrice+"</td>"
-        + "<td>Delete</td>";
-
-    let parentElement = document.getElementById("tbShoppingCart");
-    parentElement.appendChild(spItem);
-}
 function limitInputLength(elementID,length) {
     let userKeyPress = window.event ? event.which : event.keyCode;
 
     if (document.getElementById(elementID).value.length === length && userKeyPress !== 8){
         event.preventDefault();
         return false;
-    }else{
+    }else
         return true;
-    }
-}
-function limitKeyPressNumber() {
-    let userKeyPress = window.event ? event.which : event.keyCode;
-
-    if (userKeyPress !== 8){
-        if (userKeyPress < 48 || userKeyPress > 57){
-            event.preventDefault(); //stop the key press
-            return false;
-        }
-    }else{
-        return true;
-    }
 }
 function validationEmailAddress(sEmail) {
     let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -98,20 +57,17 @@ let uPhoneNumber = document.getElementById("txtPhoneNumber");
 let uAddress = document.getElementById("txtAddress");
 let uZipCode = document.getElementById("txtZipCode");
 let uCity = document.getElementById("txtCity");
-let uCommnets = document.getElementById("txtComments");
+let uComments = document.getElementById("txtComments");
 let btnCheckout = document.getElementById("btnCheckout");
 
-//Limit input length
+//Limit input length by addEventListener
 uFirstname.addEventListener("keypress",function () {limitInputLength("txtFirstname",100);});
 uLastname.addEventListener("keypress",function () {limitInputLength("txtLastname",100);});
 uEmail.addEventListener("keypress",function () {limitInputLength("txtEmail",50);});
-
-/*uPhoneNumber.addEventListener("keypress",limitKeyPressNumber);*/
 uPhoneNumber.addEventListener("keydown",function () {limitInputLength("txtPhoneNumber",20);});
-
 uAddress.addEventListener("keypress",function () {limitInputLength("txtAddress",200);});
 uZipCode.addEventListener("keypress",function () {limitInputLength("txtZipCode",10);});
 uCity.addEventListener("keypress",function () {limitInputLength("txtCity",50);});
-uCommnets.addEventListener("keypress",function () {limitInputLength("txtComments",1000);});
+uComments.addEventListener("keypress",function () {limitInputLength("txtComments",1000);});
 
 btnCheckout.addEventListener("click",validationUserForm);
