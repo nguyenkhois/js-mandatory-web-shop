@@ -100,8 +100,12 @@ main{padding: 5px;}
 .checkoutInput:focus{border: 1px solid #0094ff;box-shadow: 0 0 5px #0094ff;}
 .checkoutComments{width: 90%;height: 150px;}
 .required{color: #ff0000;}
+
+#txtPhoneNumber::-webkit-outer-spin-button,
+#txtPhoneNumber::-webkit-inner-spin-button,
 #txtZipCode::-webkit-outer-spin-button,
-#txtZipCode::-webkit-inner-spin-button {-webkit-appearance: none;margin: 0;}
+#txtZipCode::-webkit-inner-spin-button
+{-webkit-appearance: none;margin: 0;}
 /* End of checkout */
 
 .footer{background: #2d6aa5;width: 100%;}
