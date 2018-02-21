@@ -46,6 +46,7 @@ function validationUserForm(){
         return false;
     }else{
         alert("SUCCEED! Your order has been sent!");
+        clearShoppingCart();
         return true;
     }
 }

@@ -10,10 +10,10 @@ function showProductList(objProduct){
     //Create a new product content
     let newProductContent = document.createElement("article");
     newProductContent.setAttribute("class","product box box-dashed");
-    newProductContent.innerHTML = "<img src=\"../images/"+ objProduct.productImageUrl +"\">"
-        + "<p class='product_title'>" + objProduct.productName + "</p>"
-        + "<p>" + objProduct.productDescription + "</p>"
-        + "<p class='product_price'>" + objProduct.productPrice + " kr</p>";
+    newProductContent.innerHTML = `<img src="../images/${objProduct.productImageUrl}">
+                                   <p class="product_title">${objProduct.productName}</p>
+                                   <p>${objProduct.productDescription}</p>
+                                   <p class="product_price">${objProduct.productPrice} kr</p>`;
 
     //Create a new button within the product content
     let newProductButton = document.createElement("button");
@@ -36,6 +36,23 @@ function viewProductList() {
     for (i = 0; i < arrProductsLength; i++)
         showProductList(arrProducts[i]);
 }
+function showShoppingCartStatus() {
+    let sJSONShoppingCart = retrieveShoppingCart();
+    let objShoppingCart = JSON.parse(sJSONShoppingCart);
+    let arrShoppingCart = [];
+
+    let i;
+    for (i in objShoppingCart)
+        arrShoppingCart.push(objShoppingCart[i]);
+
+    let j;
+    let quantity = 0;
+    let arrShoppingCartLength = arrShoppingCart.length;
+    for (j = 0; j < arrShoppingCartLength; j++)
+        quantity += arrShoppingCart[j].productQuantity;
+
+    document.getElementById("dspShoppingCartStatus").innerText = quantity;
+}
 
 //MAIN
 let objProduct1 = new Product(1,"Samsung 65\" Q7F QLED 4K UHD Smart TV",19890,"TV:n levererar den ljusstarkaste och skarpaste bildkvaliteten så långt. Titta på TV i strålande 4K UHD-kvalitet.","SamsungQE65Q7FAMTXXC.jpg");
@@ -48,6 +65,6 @@ let objProduct7 = new Product(7,"GoPro Karma drone + Hero 6 Black",11390,"GoPro 
 let objProduct8 = new Product(8,"Sony Alpha A5100 Systemkamera + 16 - 50 mm objektiv",4490,"Systemkameran Sony Alpha A5100 har en kompakt design och kommer med bra autofokus, snabb fotografering och kraftfull sökare vilket ger otrolig bildkvalitet.","DSLTA5100KTI.jpg");
 
 let arrProducts = [objProduct1,objProduct2,objProduct3, objProduct4,objProduct5,objProduct6,objProduct7,objProduct8];
-let arrShoppingCart =[];
 
 viewProductList();
+showShoppingCartStatus();//Update icon shopping cart

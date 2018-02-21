@@ -108,6 +108,11 @@ main{padding: 5px;}
 {-webkit-appearance: none;margin: 0;}
 /* End of checkout */
 
+/* Icon shopping cart*/
+#main_title,#iconShoppingCart{display: inline-block;}
+#main_title{width: 49%;text-align: left;}
+#iconShoppingCart{width: 49%;text-align: right;z-index: 100;}
+
 .footer{background: #2d6aa5;width: 100%;}
 .footer_text{text-align: center;color: #fcfcfc;}
 

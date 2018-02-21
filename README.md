@@ -2,6 +2,11 @@
 * [Online demo](https://nguyenkhois.github.io/js-mandatory1/views/)
 
 ## Changelog
+### Version 2.0 (2018-02-21)
+* Completed JS mandatory 2 on branch mandatory2
+* Improved JS code with ES6's template string
+* Improved module shopping cart
+* Added icon shopping cart on Products page
 ### Version 1.2 (2018-02-18)
 * Improved shopping cart module
 * Fix bugs in CSS
