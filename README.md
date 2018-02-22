@@ -1,5 +1,5 @@
 # Simple webshop
-* [Online demo](https://nguyenkhois.github.io/js-mandatory1/views/)
+* [Online demo](https://www.vlexikon.com/demo/js-mandatory-web-shop-2/views/products.html)
 
 ## Changelog
 ### Version 2.0 (2018-02-21)
