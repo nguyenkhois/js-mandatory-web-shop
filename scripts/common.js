@@ -1,47 +1,16 @@
-function buildJSONString(objectArray) {
-    let sJSON = "[";
-    let i;
-    let arrLength;
-
-    Array.isArray(objectArray) ? arrLength = objectArray.length : objectArray = [];
-    for (i in objectArray){
-        sJSON += JSON.stringify(objectArray[i]);
-        if (i < arrLength-1)
-            sJSON += ",";
-    }
-    sJSON += "]";
-    return sJSON;
-}
-function buildObjectArray(stringJSON) {
-    let arrNew = [];
-    let objJSON = JSON.parse(stringJSON) || {}; //convert from JSON string to JSON object
-    let i;
-
-    for (i in objJSON)
-        arrNew.push(objJSON[i]); // add an object into an array
-
-    return arrNew;
-}
 function storeShoppingCart(arrShoppingCart) {
     if (typeof(Storage) !== "undefined") {
         if (sessionStorage.getItem("wsShoppingCart"))
             sessionStorage.removeItem("wsShoppingCart");
 
-        /*let jsonShoppingCart = buildJSONString(arrShoppingCart);*/
-        let jsonShoppingCart = OwnObjectArrayJSON.toJSONString(arrShoppingCart);
+        let jsonShoppingCart = OwnObjectArray.toJSONString(arrShoppingCart);
         sessionStorage.setItem("wsShoppingCart",jsonShoppingCart);
     }
-}
-function findIndexAnObjectInArray(objectArray,objPropertyName,objPropertyValue) {
-    if (Array.isArray(objectArray))
-        return objectArray.findIndex(objIndex => objIndex[objPropertyName] === objPropertyValue);
-    else
-        return -1;
 }
 function addToShoppingCart(objProduct) {
     let arrShoppingCart = retrieveShoppingCart();
     let arrShoppingCartLength = arrShoppingCart.length;
-    let i = findIndexAnObjectInArray(arrShoppingCart,'productId',objProduct.productId);
+    let i = OwnObjectArray.findIndex(arrShoppingCart,'productId',objProduct.productId);
 
     if (arrShoppingCartLength > 0 && i > -1)
         arrShoppingCart[i].productQuantity++;
@@ -58,8 +27,7 @@ function retrieveShoppingCart() {
     let arrShoppingCart = [];
     if (typeof(Storage) !== "undefined" && sessionStorage.getItem("wsShoppingCart")) {
         let sJSONShoppingCart = sessionStorage.getItem("wsShoppingCart");
-        /*arrShoppingCart = buildObjectArray(sJSONShoppingCart);*/
-        arrShoppingCart = OwnObjectArrayJSON.toObjectArray(sJSONShoppingCart);
+        arrShoppingCart = OwnObjectArray.toObjectArray(sJSONShoppingCart);
     }
 
     return arrShoppingCart;
@@ -89,8 +57,8 @@ function viewShoppingCart() {
         showShoppingCart(arrShoppingCart[j]);
 }
 
-OwnObjectArrayJSON = {};
-OwnObjectArrayJSON.toJSONString = function (objectArray) {
+OwnObjectArray = {};
+OwnObjectArray.toJSONString = function (objectArray) {
     try{
         let i;
         let sJSON;
@@ -111,7 +79,7 @@ OwnObjectArrayJSON.toJSONString = function (objectArray) {
         return false;
     }
 };
-OwnObjectArrayJSON.toObjectArray = function (stringJSON){
+OwnObjectArray.toObjectArray = function (stringJSON){
     try{
         let arrNew = [];
         let objJSON = JSON.parse(stringJSON) || {}; //convert from JSON string to JSON object
@@ -126,4 +94,10 @@ OwnObjectArrayJSON.toObjectArray = function (stringJSON){
     }catch(e){
         return false;
     }
+};
+OwnObjectArray.findIndex = function (objectArray,objPropertyName,objPropertyValue) {
+    if (Array.isArray(objectArray))
+        return objectArray.findIndex(objIndex => objIndex[objPropertyName] === objPropertyValue);
+    else
+        return -1;
 };
