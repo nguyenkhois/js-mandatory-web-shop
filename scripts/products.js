@@ -32,26 +32,18 @@ function showProductList(objProduct){
 }
 function viewProductList() {
     let i;
-    let arrProductsLength = arrProducts.length;
-    for (i = 0; i < arrProductsLength; i++)
+    for (i in arrProducts)
         showProductList(arrProducts[i]);
 }
 function showShoppingCartStatus() {
-    let sJSONShoppingCart = retrieveShoppingCart();
-    let objShoppingCart = JSON.parse(sJSONShoppingCart);
-    let arrShoppingCart = [];
-
-    let i;
-    for (i in objShoppingCart)
-        arrShoppingCart.push(objShoppingCart[i]);
-
+    let arrShoppingCart = retrieveShoppingCart();
     let j;
     let quantity = 0;
-    let arrShoppingCartLength = arrShoppingCart.length;
-    for (j = 0; j < arrShoppingCartLength; j++)
+
+    for (j in arrShoppingCart)
         quantity += arrShoppingCart[j].productQuantity;
 
-    document.getElementById("dspShoppingCartStatus").innerText = quantity;
+    document.getElementById("dspShoppingCartStatus").innerText = quantity.toString();
 }
 
 //MAIN

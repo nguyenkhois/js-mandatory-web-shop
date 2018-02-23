@@ -4,7 +4,7 @@ function buildJSONStore(arrShoppingCart) {
     let arrLength = arrShoppingCart.length;
 
     sJSON = "[";
-    for (i = 0; i < arrLength; i++){
+    for (i in arrShoppingCart){
         sJSON += JSON.stringify(arrShoppingCart[i]);
         if (i < arrLength-1)
             sJSON += ",";
@@ -85,8 +85,7 @@ function showShoppingCart(objProduct) {
 function viewShoppingCart() {
     let arrShoppingCart = retrieveShoppingCart();
     let j;
-    let arrShoppingCartLength = arrShoppingCart.length;
 
-    for (j = 0; j < arrShoppingCartLength; j++)
+    for (j in arrShoppingCart)
         showShoppingCart(arrShoppingCart[j]);
 }
