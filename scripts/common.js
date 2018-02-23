@@ -1,20 +1,20 @@
-function buildJSONStore(arrShoppingCart) {
-    let sJSON;
+function buildJSONString(objectArray) {
+    let sJSON = "[";
     let i;
-    let arrLength = arrShoppingCart.length;
+    let arrLength;
 
-    sJSON = "[";
-    for (i in arrShoppingCart){
-        sJSON += JSON.stringify(arrShoppingCart[i]);
+    Array.isArray(objectArray) ? arrLength = objectArray.length : objectArray = [];
+    for (i in objectArray){
+        sJSON += JSON.stringify(objectArray[i]);
         if (i < arrLength-1)
             sJSON += ",";
     }
     sJSON += "]";
     return sJSON;
 }
-function buildArrayOfObjects(sJSON) {
+function buildObjectArray(stringJSON) {
     let arrNew = [];
-    let objJSON = JSON.parse(sJSON); //convert from JSON string to JSON object
+    let objJSON = JSON.parse(stringJSON) || {}; //convert from JSON string to JSON object
     let i;
 
     for (i in objJSON)
@@ -27,10 +27,8 @@ function storeShoppingCart(arrShoppingCart) {
         if (sessionStorage.getItem("wsShoppingCart"))
             sessionStorage.removeItem("wsShoppingCart");
 
-        let jsonShoppingCart = buildJSONStore(arrShoppingCart);
+        let jsonShoppingCart = buildJSONString(arrShoppingCart);
         sessionStorage.setItem("wsShoppingCart",jsonShoppingCart);
-    } else {
-        // Sorry! No Web Storage support..
     }
 }
 function findIndexAnObjectInArray(objArray,objPropertyName,objPropertyValue) {
@@ -59,7 +57,7 @@ function retrieveShoppingCart() {
     let arrShoppingCart = [];
     if (typeof(Storage) !== "undefined" && sessionStorage.getItem("wsShoppingCart")) {
         let sJSONShoppingCart = sessionStorage.getItem("wsShoppingCart");
-        arrShoppingCart = buildArrayOfObjects(sJSONShoppingCart);
+        arrShoppingCart = buildObjectArray(sJSONShoppingCart);
     }
 
     return arrShoppingCart;
@@ -68,8 +66,7 @@ function clearShoppingCart() {
     if (sessionStorage){
         if (sessionStorage.getItem("wsShoppingCart"))
             sessionStorage.removeItem("wsShoppingCart");
-    }else
-        document.body.innerHTML = "Sorry, your browser does not support Session Storage...";
+    }
 }
 function showShoppingCart(objProduct) {
     let spItem = document.createElement("tr");
