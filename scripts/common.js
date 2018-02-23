@@ -27,7 +27,8 @@ function storeShoppingCart(arrShoppingCart) {
         if (sessionStorage.getItem("wsShoppingCart"))
             sessionStorage.removeItem("wsShoppingCart");
 
-        let jsonShoppingCart = buildJSONString(arrShoppingCart);
+        /*let jsonShoppingCart = buildJSONString(arrShoppingCart);*/
+        let jsonShoppingCart = OwnObjectArrayJSON.toJSONString(arrShoppingCart);
         sessionStorage.setItem("wsShoppingCart",jsonShoppingCart);
     }
 }
@@ -57,7 +58,8 @@ function retrieveShoppingCart() {
     let arrShoppingCart = [];
     if (typeof(Storage) !== "undefined" && sessionStorage.getItem("wsShoppingCart")) {
         let sJSONShoppingCart = sessionStorage.getItem("wsShoppingCart");
-        arrShoppingCart = buildObjectArray(sJSONShoppingCart);
+        /*arrShoppingCart = buildObjectArray(sJSONShoppingCart);*/
+        arrShoppingCart = OwnObjectArrayJSON.toObjectArray(sJSONShoppingCart);
     }
 
     return arrShoppingCart;
@@ -86,3 +88,42 @@ function viewShoppingCart() {
     for (j in arrShoppingCart)
         showShoppingCart(arrShoppingCart[j]);
 }
+
+OwnObjectArrayJSON = {};
+OwnObjectArrayJSON.toJSONString = function (objectArray) {
+    try{
+        let i;
+        let sJSON;
+        let arrLength = 0;
+
+        Array.isArray(objectArray) ? arrLength = objectArray.length : sJSON = '';
+        if (arrLength > 0){
+            sJSON = "[";
+            for (i in objectArray){
+                sJSON += JSON.stringify(objectArray[i]);
+                if (i < arrLength-1)
+                    sJSON += ",";
+            }
+            sJSON += "]";
+        }
+        return sJSON;
+    }catch(e){
+        return false;
+    }
+};
+OwnObjectArrayJSON.toObjectArray = function (stringJSON){
+    try{
+        let arrNew = [];
+        let objJSON = JSON.parse(stringJSON) || {}; //convert from JSON string to JSON object
+        let i;
+
+        if (objJSON){
+            for (i in objJSON)
+                arrNew.push(objJSON[i]); // add an object into an array
+        }
+
+        return arrNew;
+    }catch(e){
+        return false;
+    }
+};
