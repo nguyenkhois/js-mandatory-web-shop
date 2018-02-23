@@ -31,9 +31,9 @@ function storeShoppingCart(arrShoppingCart) {
         sessionStorage.setItem("wsShoppingCart",jsonShoppingCart);
     }
 }
-function findIndexAnObjectInArray(objArray,objPropertyName,objPropertyValue) {
-    if (Array.isArray(objArray))
-        return objArray.findIndex(objIndex => objIndex[objPropertyName] === objPropertyValue);
+function findIndexAnObjectInArray(objectArray,objPropertyName,objPropertyValue) {
+    if (Array.isArray(objectArray))
+        return objectArray.findIndex(objIndex => objIndex[objPropertyName] === objPropertyValue);
     else
         return -1;
 }
