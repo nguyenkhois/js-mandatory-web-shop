@@ -13,10 +13,6 @@ function buildJSONStore(arrShoppingCart) {
     return sJSON;
 }
 function buildArrayOfObjects(sJSON) {
-    //Build an array of objects from JSON string
-    //Input: a JSON string
-    //Output: an array of objects
-
     let arrNew = [];
     let objJSON = JSON.parse(sJSON); //convert from JSON string to JSON object
     let i;
@@ -44,7 +40,7 @@ function findIndexAnObjectInArray(objArray,objPropertyName,objPropertyValue) {
         return -1;
 }
 function addToShoppingCart(objProduct) {
-    let arrShoppingCart = buildArrayOfObjects(retrieveShoppingCart());
+    let arrShoppingCart = retrieveShoppingCart();
     let arrShoppingCartLength = arrShoppingCart.length;
     let i = findIndexAnObjectInArray(arrShoppingCart,'productId',objProduct.productId);
 
@@ -60,13 +56,13 @@ function addToShoppingCart(objProduct) {
     showShoppingCartStatus(); //Update icon shopping cart on products.html page
 }
 function retrieveShoppingCart() {
-    if (typeof(Storage) !== "undefined") {
-        if (sessionStorage.getItem("wsShoppingCart"))
-            return sessionStorage.getItem("wsShoppingCart");
-        else
-            return false;
-    } else
-        return false;
+    let arrShoppingCart = [];
+    if (typeof(Storage) !== "undefined" && sessionStorage.getItem("wsShoppingCart")) {
+        let sJSONShoppingCart = sessionStorage.getItem("wsShoppingCart");
+        arrShoppingCart = buildArrayOfObjects(sJSONShoppingCart);
+    }
+
+    return arrShoppingCart;
 }
 function clearShoppingCart() {
     if (sessionStorage){
@@ -87,16 +83,10 @@ function showShoppingCart(objProduct) {
     parentElement.appendChild(spItem);
 }
 function viewShoppingCart() {
-    let sJSONShoppingCart = retrieveShoppingCart();
-    let objShoppingCart = JSON.parse(sJSONShoppingCart);
-    let arrShoppingCart = [];
-
-    let i;
-    for (i in objShoppingCart)
-        arrShoppingCart.push(objShoppingCart[i]);
-
+    let arrShoppingCart = retrieveShoppingCart();
     let j;
     let arrShoppingCartLength = arrShoppingCart.length;
+
     for (j = 0; j < arrShoppingCartLength; j++)
         showShoppingCart(arrShoppingCart[j]);
 }

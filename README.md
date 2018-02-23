@@ -2,6 +2,8 @@
 * [Online demo](https://www.vlexikon.com/demo/js-mandatory-web-shop-2/views/products.html)
 
 ## Changelog
+### Version 2.1 (2018-02-23)
+* Improved shopping cart
 ### Version 2.0 (2018-02-21)
 * Completed JS mandatory 2 on branch mandatory2
 * Improved JS code with ES6's template string
