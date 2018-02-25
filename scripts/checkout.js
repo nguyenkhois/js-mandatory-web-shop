@@ -1,16 +1,3 @@
-function limitInputLength(elementID,length) {
-    let userKeyPress = window.event ? event.which : event.keyCode;
-
-    if (document.getElementById(elementID).value.length === length && userKeyPress !== 8){
-        event.preventDefault();
-        return false;
-    }else
-        return true;
-}
-function validationEmailAddress(sEmail) {
-    let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    return emailPattern.test(sEmail);
-}
 function validationUserForm(){
     if (uFirstname.value === "" || uFirstname.value.length < 3){
         alert("First name must have and between 3-100 characters!");
@@ -50,16 +37,7 @@ function validationUserForm(){
         return true;
     }
 }
-function forceKeyPressNumber() {
-    let userKeyPress = window.event ? event.which : event.keyCode;
-    if (userKeyPress !== 8){
-        if (userKeyPress < 48 || userKeyPress > 57){
-            event.preventDefault(); //stop the key press
-            return false;
-        }
-    }else
-        return true;
-}
+
 //MAIN
 viewShoppingCart();
 
