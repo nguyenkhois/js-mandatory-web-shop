@@ -33,6 +33,8 @@ main{padding: 5px;}
 .main_title{font-weight: bold;font-size: 30px;}
 .product{width: 400px;height: 550px;float: left;margin: 20px;text-align: center;}
 .product_title{font-weight: bold;font-size: 20px}
+.product_link{text-decoration: none;color: #000000;}
+.product_link:hover{text-decoration: underline;color: #2d6aa5;}
 .product_price{font-weight: bold;color: #2d6aa5;font-size: 20px;}
 
 /* Buttons */

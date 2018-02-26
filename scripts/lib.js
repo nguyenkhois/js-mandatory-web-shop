@@ -73,7 +73,7 @@ OwnObjectArray = {
     }
 };
 
-function getParameterValue(param){
+function getParamFromUrl(param){
     try{
         let sQueryString = document.URL.split("?")[1];
         let searchParams = new URLSearchParams(sQueryString);

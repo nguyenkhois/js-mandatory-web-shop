@@ -33,13 +33,13 @@ function validationUserForm(){
         return false;
     }else{
         alert("SUCCEED! Your order has been sent!");
-        clearShoppingCart();
+        clearCart();
         return true;
     }
 }
 
 //MAIN
-viewShoppingCart();
+showCart();
 
 //Form
 let uFirstname = document.getElementById("txtFirstname");

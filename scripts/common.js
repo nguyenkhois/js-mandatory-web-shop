@@ -1,58 +1,67 @@
-function storeShoppingCart(arrShoppingCart) {
+function storeCart(arrCart) {
     if (typeof(Storage) !== "undefined") {
         if (sessionStorage.getItem("wsShoppingCart"))
             sessionStorage.removeItem("wsShoppingCart");
 
-        let jsonShoppingCart = OwnObjectArray.toJSONString(arrShoppingCart);
-        sessionStorage.setItem("wsShoppingCart",jsonShoppingCart);
+        let sJSONCart = OwnObjectArray.toJSONString(arrCart);
+        sessionStorage.setItem("wsShoppingCart",sJSONCart);
     }
 }
-function addToShoppingCart(objProduct) {
-    let arrShoppingCart = retrieveShoppingCart();
-    let arrShoppingCartLength = arrShoppingCart.length;
-    let i = OwnObjectArray.findIndex(arrShoppingCart,'productId',objProduct.productId);
+function retrieveCart() {
+    let arrCart = [];
+    if (typeof(Storage) !== "undefined" && sessionStorage.getItem("wsShoppingCart")) {
+        let sJSONCart = sessionStorage.getItem("wsShoppingCart");
+        arrCart = OwnObjectArray.toObjectArray(sJSONCart);
+    }
+    return arrCart;
+}
+function addToCart(objProduct) {
+    let arrCart = retrieveCart();
+    let arrCartLength = arrCart.length;
+    let i = OwnObjectArray.findIndex(arrCart,'productId',objProduct.productId);
 
-    if (arrShoppingCartLength > 0 && i > -1)
-        arrShoppingCart[i].productQuantity++;
+    if (arrCartLength > 0 && i > -1)
+        arrCart[i].productQuantity++;
     else{
         objProduct.productQuantity = 1; //Assign new property to objProduct
-        arrShoppingCart.push(objProduct);
+        arrCart.push(objProduct);
     }
 
-    storeShoppingCart(arrShoppingCart);
+    storeCart(arrCart);
     alert(objProduct.productName + " added to cart!");
-    showShoppingCartStatus(); //Update icon shopping cart on products.html page
+    updateCartStatus(); //Update icon shopping cart on products.html page
 }
-function retrieveShoppingCart() {
-    let arrShoppingCart = [];
-    if (typeof(Storage) !== "undefined" && sessionStorage.getItem("wsShoppingCart")) {
-        let sJSONShoppingCart = sessionStorage.getItem("wsShoppingCart");
-        arrShoppingCart = OwnObjectArray.toObjectArray(sJSONShoppingCart);
-    }
-
-    return arrShoppingCart;
-}
-function clearShoppingCart() {
-    if (sessionStorage){
-        if (sessionStorage.getItem("wsShoppingCart"))
-            sessionStorage.removeItem("wsShoppingCart");
-    }
-}
-function showShoppingCart(objProduct) {
-    let spItem = document.createElement("tr");
-    spItem.setAttribute("class","cartItem");
-    spItem.innerHTML = `<td>${objProduct.productName}</td>
+function buildAnItemInCart(objProduct) {
+    let cartItem = document.createElement("tr");
+    cartItem.setAttribute("class","cartItem");
+    cartItem.innerHTML = `<td><a href="product_detail.html?id=${objProduct.productId}" class="product_link">${objProduct.productName}</a></td>
                         <td class="cartItemNumber"><input type="number" value="${objProduct.productQuantity}"></td>
                         <td class="cartItemNumber">${objProduct.productPrice}</td>
                         <td><img class="cartItemRemove" src="../images/remove-from-cart.png" alt="Remove from cart"></td>`;
 
     let parentElement = document.getElementById("tbShoppingCart");
-    parentElement.appendChild(spItem);
+    parentElement.appendChild(cartItem);
 }
-function viewShoppingCart() {
-    let arrShoppingCart = retrieveShoppingCart();
+function showCart() {
+    let arrCart = retrieveCart();
     let j;
 
-    for (j in arrShoppingCart)
-        showShoppingCart(arrShoppingCart[j]);
+    for (j in arrCart)
+        buildAnItemInCart(arrCart[j]);
+}
+function clearCart() {
+    if (sessionStorage){
+        if (sessionStorage.getItem("wsShoppingCart"))
+            sessionStorage.removeItem("wsShoppingCart");
+    }
+}
+function updateCartStatus() {
+    let arrCart = retrieveCart();
+    let j;
+    let quantity = 0;
+
+    for (j in arrCart)
+        quantity += arrCart[j].productQuantity;
+
+    document.getElementById("dspShoppingCartStatus").innerText = quantity.toString();
 }
