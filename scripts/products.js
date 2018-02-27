@@ -1,26 +1,23 @@
 function buildAProduct(objProduct){
     //Create a new product content
-    let newProductContent = document.createElement("article");
-    newProductContent.setAttribute("class","product box box-dashed");
-    newProductContent.innerHTML = `<img src="../images/${objProduct.productImageUrl}">
-                                   <p class="product_title"><a href="product_detail.html?id=${objProduct.productId}" class="product_link">${objProduct.productName}</a></p>
-                                   <p>${objProduct.productDescription}</p>
-                                   <p class="product_price">${objProduct.productPrice} kr</p>`;
+    let $productContentHTML = `<img src="../images/${objProduct.productImageUrl}">
+                               <p class="product_title"><a href="product_detail.html?id=${objProduct.productId}" class="product_link">${objProduct.productName}</a></p>
+                               <p>${objProduct.productDescription}</p>
+                               <p class="product_price">${objProduct.productPrice} kr</p>`;
+    //Create a button
+    let $productButton = $("<button>").text("Add to cart");
+    $productButton.addClass("button button_buy");
 
-    //Create a new button within the product content
-    let newProductButton = document.createElement("button");
-    newProductButton.setAttribute("class","button button_buy");
-    newProductButton.innerHTML = "Add to cart";
-    newProductContent.appendChild(newProductButton);
+    //Append button to HTML content
+    let $productContent = $("<article>").html($productContentHTML);
+    $productContent.addClass("product box box-dashed");
+    $productContent.append($productButton);
 
-    //Append all into parent element
-    let parentElement = document.getElementById("dspProductList");
-    parentElement.appendChild(newProductContent);
+    //Append to main container
+    $("#dspProductList").append($productContent);
 
     //Passing this object as the argument to a onclick function
-    newProductButton.addEventListener("click",function () {
-        addToCart(objProduct);
-    });
+    $($productButton).click(function(){addToCart(objProduct);});
 }
 function showProductList() {
     let i;
@@ -29,5 +26,7 @@ function showProductList() {
 }
 
 //MAIN
-showProductList();
-updateCartStatus();//Update icon shopping cart
+$(document).ready(function(){
+    showProductList();
+    updateCartStatus();//Update icon shopping cart
+});

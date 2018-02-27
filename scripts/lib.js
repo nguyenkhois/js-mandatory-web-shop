@@ -1,5 +1,5 @@
 //This library can reuse in other project
-OwnObjectArray = {
+let OwnObjectArray = {
     toJSONString(objectArray) {
         try{
             let i;
@@ -47,10 +47,9 @@ OwnObjectArray = {
         }
     },
     sortByAlphabet(objectArray,objPropertyName,order){
-        let objPropertyNameLowerCase = objPropertyName.toLowerCase();
         objectArray.sort(function(a, b){
-            let x = a[objPropertyNameLowerCase];
-            let y = b[objPropertyNameLowerCase];
+            let x = a[objPropertyName];
+            let y = b[objPropertyName];
             if (order === 1){ //1 is mean descending
                 if (x < y) {return 1;}
                 if (x > y) {return -1;}

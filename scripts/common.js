@@ -32,15 +32,16 @@ function addToCart(objProduct) {
     updateCartStatus(); //Update icon shopping cart on products.html page
 }
 function buildAnItemInCart(objProduct) {
-    let cartItem = document.createElement("tr");
-    cartItem.setAttribute("class","cartItem");
-    cartItem.innerHTML = `<td><a href="product_detail.html?id=${objProduct.productId}" class="product_link">${objProduct.productName}</a></td>
-                        <td class="cartItemNumber"><input type="number" value="${objProduct.productQuantity}"></td>
-                        <td class="cartItemNumber">${objProduct.productPrice}</td>
-                        <td><img class="cartItemRemove" src="../images/remove-from-cart.png" alt="Remove from cart"></td>`;
+    //Create HTML content
+    let $cartItemContent =`<td><a href="product_detail.html?id=${objProduct.productId}" class="product_link">${objProduct.productName}</a></td>
+                            <td class="cartItemNumber"><input type="number" value="${objProduct.productQuantity}"></td>
+                            <td class="cartItemNumber">${objProduct.productPrice}</td>
+                            <td><img class="cartItemRemove" src="../images/remove-from-cart.png" alt="Remove from cart"></td>`;
+    //Create HTML element
+    let $cartItem = $("<tr>").html($cartItemContent);
+    $cartItem.addClass("cartItem");
 
-    let parentElement = document.getElementById("tbShoppingCart");
-    parentElement.appendChild(cartItem);
+    $("#tbShoppingCart").append($cartItem);
 }
 function showCart() {
     let arrCart = retrieveCart();
@@ -63,5 +64,5 @@ function updateCartStatus() {
     for (j in arrCart)
         quantity += arrCart[j].productQuantity;
 
-    document.getElementById("dspShoppingCartStatus").innerText = quantity.toString();
+    $("#dspShoppingCartStatus").text(quantity.toString());
 }

@@ -18,3 +18,6 @@ let objProduct8 = new Product(8,"Sony Alpha A5100 Systemkamera + 16 - 50 mm obje
 
 let arrProducts = [objProduct1,objProduct2,objProduct3,objProduct4,objProduct5,
                     objProduct6,objProduct7,objProduct8];
+
+//Sort by product name
+arrProducts = OwnObjectArray.sortByAlphabet(arrProducts,'productName',0);
