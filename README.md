@@ -1,7 +1,12 @@
 # Simple webshop
-* [Online demo](https://www.vlexikon.com/demo/js-mandatory-web-shop-2/views/products.html)
+* [Online demo](https://www.vlexikon.com/demo/js-mandatory-web-shop-3/views/products.html)
 
 ## Changelog
+### Version 3.0 (2018-02-26)
+* Begin with mandatory 3
+* Refactor a part of JS to jQuery
+* Using a new own object with methods ([OwnObjectArray](https://github.com/nguyenkhois/library/tree/master/javascript))
+* Improved code for effect and speed 
 ### Version 2.1 (2018-02-23)
 * Improved shopping cart
 ### Version 2.0 (2018-02-21)
