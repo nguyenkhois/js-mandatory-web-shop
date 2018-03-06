@@ -1,5 +1,5 @@
 //This library can reuse in other project
-let OwnObjectArray = {
+/*let OwnObjectArray = {
     toJSONString(objectArray) {
         try{
             let i;
@@ -70,8 +70,68 @@ let OwnObjectArray = {
         });
         return objectArray;
     }
-};
+};*/
+let OwnObjectArray = {
+    toJSONString(objectArray) {
+        try{
+            let sJSON;
+            let arrLength = 0;
 
+            Array.isArray(objectArray) ? arrLength = objectArray.length : sJSON = '';
+            if (arrLength > 0)
+                return JSON.stringify(objectArray);
+            else
+                return sJSON;//null string
+        }catch(e){
+            return false;
+        }
+    },
+    toObjectArray(sJSON){
+        try{
+            let objJSON = JSON.parse(sJSON);
+            if (Array.isArray(objJSON))
+                return objJSON;
+            else
+                return false
+        }catch(e){
+            return false
+        }
+    },
+    findIndex(objectArray,objPropertyName,objPropertyValue) {
+        try{
+            if (Array.isArray(objectArray))
+                return objectArray.findIndex(objIndex => objIndex[objPropertyName] === objPropertyValue);
+            else
+                return -1;
+        }catch(e){
+            return false;
+        }
+    },
+    sortByAlphabet(objectArray,objPropertyName,order){
+        objectArray.sort(function(a, b){
+            let x = a[objPropertyName];
+            let y = b[objPropertyName];
+            if (order === 1){ //1 is mean descending
+                if (x < y) {return 1;}
+                if (x > y) {return -1;}
+            }else{ //0 or other is mean ascending
+                if (x < y) {return -1;}
+                if (x > y) {return 1;}
+            }
+            return 0;
+        });
+        return objectArray;
+    },
+    sortByNumeric(objectArray,objPropertyName,order){
+        objectArray.sort(function (a, b){
+            if (order === 1) //1 is mean descending
+                return b[objPropertyName] - a[objPropertyName];
+            else //0 and other is mean ascending
+                return a[objPropertyName] - b[objPropertyName];
+        });
+        return objectArray;
+    }
+};
 function getParamFromUrl(param){
     try{
         let sQueryString = document.URL.split("?")[1];

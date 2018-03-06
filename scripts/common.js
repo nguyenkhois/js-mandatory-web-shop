@@ -17,10 +17,9 @@ function retrieveCart() {
 }
 function addToCart(objProduct) {
     let arrCart = retrieveCart();
-    let arrCartLength = arrCart.length;
     let i = OwnObjectArray.findIndex(arrCart,'productId',objProduct.productId);
 
-    if (arrCartLength > 0 && i > -1)
+    if (arrCart.length > 0 && i > -1)
         arrCart[i].productQuantity++;
     else{
         objProduct.productQuantity = 1; //Assign new property to objProduct

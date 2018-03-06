@@ -17,7 +17,7 @@ let objProduct7 = new Product(7,"GoPro Karma drone + Hero 6 Black",11390,"GoPro 
 let objProduct8 = new Product(8,"Sony Alpha A5100 Systemkamera + 16 - 50 mm objektiv",4490,"Systemkameran Sony Alpha A5100 har en kompakt design och kommer med bra autofokus, snabb fotografering och kraftfull sökare vilket ger otrolig bildkvalitet.","DSLTA5100KTI.jpg");
 
 let arrProducts = [objProduct1,objProduct2,objProduct3,objProduct4,objProduct5,
-                    objProduct6,objProduct7,objProduct8];
+                   objProduct6,objProduct7,objProduct8];
 
 //Sort by product name
 arrProducts = OwnObjectArray.sortByAlphabet(arrProducts,'productName',0);
