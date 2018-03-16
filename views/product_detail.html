@@ -31,7 +31,44 @@
             <div id="main_title"><p class="main_title"></p></div>
             <div id="iconShoppingCart"><span id="dspShoppingCartStatus"></span><img src="../images/icon-cart.png" alt="Your shopping cart"></div>
 
-            <section id="dspProductDetail"></section>
+            <div id="productDetailBody" class="productDetailBody">
+                <section id="dspProductDetail"></section>
+                <section id="SendReview" class="box box-default sendReview">
+                    <form id="frmSendReview" action="#" class="frm-sendReview">
+                        <h3>Send a review</h3>
+                        <table>
+                            <tr>
+                                <td>Rating</td>
+                                <td>
+                                    <span>
+                                        1<input type="radio" name="customerRating" value="1">
+                                        2<input type="radio" name="customerRating" value="2">
+                                        3<input type="radio" name="customerRating" value="3">
+                                        4<input type="radio" name="customerRating" value="4">
+                                        5<input type="radio" name="customerRating" value="5" checked>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="customerName">Your name</label></td>
+                                <td><input id="customerName" type="text" minlength="2" maxlength="20" class="reviewInput"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="customerComment">Comment</label></td>
+                                <td><textarea name="" id="customerComment"  minlength="2" maxlength="100" cols="30" rows="10" class="reviewInput"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><button id="btnSendReview" type="button" class="button button_send_review">Send</button></td>
+                            </tr>
+                        </table>
+                    </form>
+                </section>
+
+                <h3>Reviews</h3>
+                <section id="dspReviews">
+                </section>
+            </div>
         </main>
 
         <footer class="footer">
@@ -40,6 +77,7 @@
     </div>
 
     <!-- Scripts -->
+    <script src="../scripts/config.js"></script>
     <script src="../scripts/asset.js"></script>
     <script src="../scripts/common.js"></script>
     <script src="../scripts/product_detail.js"></script>

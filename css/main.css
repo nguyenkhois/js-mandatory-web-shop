@@ -37,6 +37,45 @@ main{padding: 5px;}
 .product_link:hover{text-decoration: underline;color: #2d6aa5;}
 .product_price{font-weight: bold;color: #2d6aa5;font-size: 20px;}
 
+/*Product detail*/
+.productDetailBody{
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.product_detail{text-align: center;width: 1000px;}
+
+/*Reviews*/
+.sendReview{margin: 20px;width: 600px;}
+.frm-sendReview{}
+.frm-sendReview input{width: 450px;}
+.frm-sendReview input[type="radio"]{width: 13px; text-align: left; margin-right: 15px;}
+.frm-sendReview textarea{width: 450px;height: 200px;}
+.reviewInput{
+    /* Clear the user's operating system's theme */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    /* Apply own styles */
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+
+    width: 90%;
+    height: 30px;
+}
+.reviewInput:focus{border: 1px solid #0094ff;box-shadow: 0 0 5px #0094ff;}
+#dspReviews{
+    width: 600px;
+}
+.review-box{margin-bottom: 10px;}
+.review-customer-name{font-weight: bold;}
+.review-stars{height: 15px;}
 /* Buttons */
 .button {
     background-color: #4CAF50; /* Green */
@@ -68,6 +107,14 @@ main{padding: 5px;}
     bottom: 10px;
 }
 .button_order:hover {background-color: #ffffff;color: #000000;}
+.button_send_review {
+    background-color: #2d6aa5;
+    color: #ffffff;
+    border: 2px solid #2d6aa5;
+    position: center;
+    bottom: 10px;
+}
+.button_send_review:hover {background-color: #ffffff;color: #000000;}
 
 /* Checkout */
 #dspCheckout{margin-top: 50px;}

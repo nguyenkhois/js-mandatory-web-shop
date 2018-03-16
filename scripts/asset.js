@@ -1,10 +1,18 @@
-//Create products
+//Create constructors for Product and Review
 function Product(pId, pName, pPrice, pDescription, pImageUrl) {
     this.productId = pId;
     this.productName = pName;
     this.productPrice = pPrice;
     this.productDescription = pDescription;
     this.productImageUrl = pImageUrl;
+    this.reviews = [];
+}
+function Review(rId, pId, cName,cComment,cRating) {
+    this.reviewId = rId;
+    this.productId = pId;
+    this.name = cName;
+    this.comment = cComment;
+    this.rating = cRating;
 }
 
 let objProduct1 = new Product(1,"Samsung 65\" Q7F QLED 4K UHD Smart TV",19890,"TV:n levererar den ljusstarkaste och skarpaste bildkvaliteten så långt. Titta på TV i strålande 4K UHD-kvalitet.","SamsungQE65Q7FAMTXXC.jpg");
@@ -18,6 +26,3 @@ let objProduct8 = new Product(8,"Sony Alpha A5100 Systemkamera + 16 - 50 mm obje
 
 let arrProducts = [objProduct1,objProduct2,objProduct3,objProduct4,objProduct5,
                    objProduct6,objProduct7,objProduct8];
-
-//Sort by product name
-arrProducts = OwnObjectArray.sortByAlphabet(arrProducts,'productName',0);
