@@ -135,8 +135,8 @@ if (objProduct !== null && objProduct.productId === queryProductID){
             let objReview = {
                 reviewId: maxReviewId,
                 productId: objProduct.productId,
-                name: customerName.val(),
-                comment: customerComment.val(),
+                name: customerName.val().toText(),
+                comment: customerComment.val().toText(),
                 rating: customerRating
             };
 

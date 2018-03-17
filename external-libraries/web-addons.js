@@ -81,6 +81,14 @@ let OwnObjectArray = {
     }
 };
 
+String.prototype.toText = function(){
+    return this.replace(/</g, "&lt;")
+               .replace(/>/g, "&gt;")
+               .replace(/\//g,"&frasl;")
+               .replace(/\'/g,"&apos;")
+               .replace(/\"/g, "&quot;");
+};
+
 function getParamFromUrl(param){
     try{
         let sQueryString = document.URL.split("?")[1];
