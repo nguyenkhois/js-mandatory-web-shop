@@ -51,15 +51,18 @@
                             </tr>
                             <tr>
                                 <td><label for="customerName">Your name</label></td>
-                                <td><input id="customerName" type="text" minlength="2" maxlength="20" class="reviewInput"></td>
+                                <td><input id="customerName" type="text" minlength="2" maxlength="20" class="reviewInput" required><span class="required">*</span></td>
                             </tr>
                             <tr>
                                 <td><label for="customerComment">Comment</label></td>
-                                <td><textarea name="" id="customerComment"  minlength="2" maxlength="100" cols="30" rows="10" class="reviewInput"></textarea></td>
+                                <td><textarea name="" id="customerComment"  minlength="2" maxlength="200" cols="30" rows="10" class="reviewInput" required></textarea><span class="required">*</span></td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td><button id="btnSendReview" type="button" class="button button_send_review">Send</button></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">(<span class="required">*</span>) Required information</td>
                             </tr>
                         </table>
                     </form>

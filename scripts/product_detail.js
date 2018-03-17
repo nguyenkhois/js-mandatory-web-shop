@@ -1,3 +1,10 @@
+//Get HTML elements
+let customerName = $("#customerName");
+let customerComment = $("#customerComment");
+let dspReviews = $("#dspReviews");
+let dspProductDetail = $("#dspProductDetail");
+let btnSendReview = $("#btnSendReview");
+
 //FUNCTIONS
 function renderProductDetail(objProduct){
     //Create a new product content
@@ -15,7 +22,7 @@ function renderProductDetail(objProduct){
     $productContent.append($productButton);
 
     //Append to main container
-    $("#dspProductDetail").append($productContent);
+    dspProductDetail.append($productContent);
 
     //Passing this object as the argument to a onclick function
     $($productButton).click(function(){addToCart(objProduct);});
@@ -67,20 +74,36 @@ function renderProductReview(objReview) {
                         <p>${objReview.comment}</p>
                         `;
     reviewBox.html(reviewContent);
-    $("#dspReviews").append(reviewBox);
+    dspReviews.append(reviewBox);
 }
 function getProductReviews(productId) {
     let allProductsReviews = retrieveReviews(); //returns an object array with all reviews for all products
     let productReviews = OwnObjectArray.filterByProperty(allProductsReviews,'productId',productId); //returns only this product reviews
 
-    $("#dspReviews").html(""); //clear all older reviews before render newest reviews
+    dspReviews.html(""); //clear all older reviews before render newest reviews
     let i;
     for (i in productReviews)
         renderProductReview(productReviews[i]);
 }
 function clearReviewForm() {
-    $("#customerName").val("");
-    $("#customerComment").val("");
+    customerName.val("").focus();
+    customerComment.val("");
+}
+function checkReviewForm() {
+    if (customerName.val().length === 0 || customerName.val().length > 20){
+        alert("Your name must have 1-20 character");
+        customerName.focus();
+        return false
+    }else if (!namePattern.test(customerName.val())){
+        alert("Your name does not look good");
+        customerName.focus();
+        return false
+    }else if (customerComment.val().length === 0 || customerComment.val().length > 200){
+        alert("Your comment must have 1-200 character");
+        customerComment.focus();
+        return false
+    }else
+        return true
 }
 
 //MAIN
@@ -92,35 +115,36 @@ productIndex >= 0 ? objProduct = arrProducts[productIndex] : objProduct = null;
 if (objProduct !== null && objProduct.productId === queryProductID){
     renderProductDetail(objProduct);
     updateCartStatus(); //get current cart state
-    getProductReviews(objProduct.productId);
+    getProductReviews(objProduct.productId); //get all reviews for this product
 
     //Button send preview
-    $("#btnSendReview").click(function () {
-        //Get current review
-        let customerRating = $("input[name=customerRating]:checked").val();
-        let customerName = $("#customerName");
-        let customerComment = $("#customerComment");
-        let allProductsReviews = retrieveReviews(); //returns an object array or false
-        if (!allProductsReviews) //If it's not found any reviews in system
-            allProductsReviews = [];//Set the array is null
+    btnSendReview.click(function (event) {
+        event.preventDefault();
+        if (checkReviewForm()){
+            //Get current review
+            let customerRating = $("input[name=customerRating]:checked").val();
+            let allProductsReviews = retrieveReviews(); //returns an object array or false
+            if (!allProductsReviews) //If it's not found any reviews in system
+                allProductsReviews = [];//Set the array is null
 
-        //Get max review ID
-        let maxReviewId = 1;
-        if (allProductsReviews.length > 0)
-            maxReviewId += OwnObjectArray.getMax(allProductsReviews,'reviewId');
+            //Get max review ID
+            let maxReviewId = 1;
+            if (allProductsReviews.length > 0)
+                maxReviewId += OwnObjectArray.getMax(allProductsReviews,'reviewId');
 
-        let objReview = {
-            reviewId: maxReviewId,
-            productId: objProduct.productId,
-            name: customerName.val(),
-            comment: customerComment.val(),
-            rating: customerRating
-        };
+            let objReview = {
+                reviewId: maxReviewId,
+                productId: objProduct.productId,
+                name: customerName.val(),
+                comment: customerComment.val(),
+                rating: customerRating
+            };
 
-        allProductsReviews.unshift(objReview);
-        storeReviews(allProductsReviews);
-        clearReviewForm();
-        getProductReviews(objProduct.productId);
+            allProductsReviews.unshift(objReview);
+            storeReviews(allProductsReviews);
+            clearReviewForm();
+            getProductReviews(objProduct.productId);
+        }
     });
 }else
-    $("#dspProductDetail").html("<h1>Data not found</h1>");
+    dspProductDetail.html("<h1>Data not found</h1>");
