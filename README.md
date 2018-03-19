@@ -1,7 +1,9 @@
 # Simple webshop
-* [Online demo for mandatory 3](https://www.vlexikon.com/demo/js-mandatory-web-shop-3/views/products.html)
+* [Online demo for mandatory 4](https://www.vlexikon.com/demo/js-mandatory-web-shop-4/views/products.html)
 
 ## Changelog
+### Version 4.0 (2018-03-19)
+* Begin with mandatory 4
 ### Version 3.1.2 (2018-03-19)
 * Improved shopping cart
 * Added a function for the user can change quantity
