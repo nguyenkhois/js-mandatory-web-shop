@@ -25,7 +25,7 @@ function renderProductDetail(objProduct){
     dspProductDetail.append($productContent);
 
     //Passing this object as the argument to a onclick function
-    $($productButton).click(function(){addToCart(objProduct);});
+    $($productButton).click(function(){addToCart(objProduct,1);});
 }
 function retrieveReviews() {
     if (typeof(Storage) !== "undefined")
