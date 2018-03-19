@@ -1,6 +1,6 @@
 //Create constructors for Product and Review
-function Product(pId, pName, pPrice, pDescription, pImageUrl) {
-    this.productId = pId;
+/*function Product(pId, pName, pPrice, pDescription, pImageUrl) {
+    this.Id = pId;
     this.productName = pName;
     this.productPrice = pPrice;
     this.productDescription = pDescription;
@@ -9,7 +9,7 @@ function Product(pId, pName, pPrice, pDescription, pImageUrl) {
 }
 function Review(rId, pId, cName,cComment,cRating) {
     this.reviewId = rId;
-    this.productId = pId;
+    this.Id = pId;
     this.name = cName;
     this.comment = cComment;
     this.rating = cRating;
@@ -25,4 +25,34 @@ let objProduct7 = new Product(7,"GoPro Karma drone + Hero 6 Black",11390,"GoPro 
 let objProduct8 = new Product(8,"Sony Alpha A5100 Systemkamera + 16 - 50 mm objektiv",4490,"Systemkameran Sony Alpha A5100 har en kompakt design och kommer med bra autofokus, snabb fotografering och kraftfull sökare vilket ger otrolig bildkvalitet.","DSLTA5100KTI.jpg");
 
 let arrProducts = [objProduct1,objProduct2,objProduct3,objProduct4,objProduct5,
-                   objProduct6,objProduct7,objProduct8];
+    objProduct6,objProduct7,objProduct8];*/
+
+//Definition constructor
+//Refactor these constructors for API
+function Product(pId, pName, pPrice, pDescription, pImageUrl) {
+    this.Id = pId;
+    this.Name = pName;
+    this.Price = pPrice;
+    this.Description = pDescription;
+    this.Image = pImageUrl;
+    this.Reviews = [];
+}
+function Review(rId, pId, cName,cComment,cRating) {
+    this.Id = rId;
+    this.ProductId = pId;
+    this.Name = cName;
+    this.Comment = cComment;
+    this.Rating = cRating;
+}
+
+//Get asset from API
+$.get(urlProducts,function (data, status) {
+    if (Array.isArray(data))
+        sessionStorage.wsAsset = JSON.stringify(data);
+});
+
+//Get into own asset
+let arrProducts = [];
+if (typeof(Storage) !== "undefined" && sessionStorage.wsAsset){
+    arrProducts = JSON.parse(sessionStorage.wsAsset);
+}

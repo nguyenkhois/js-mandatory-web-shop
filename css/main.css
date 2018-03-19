@@ -36,7 +36,7 @@ main{padding: 5px;}
 .product_link{text-decoration: none;color: #000000;}
 .product_link:hover{text-decoration: underline;color: #2d6aa5;}
 .product_price{font-weight: bold;color: #2d6aa5;font-size: 20px;}
-
+.product_image{width: 200px;}
 /*Product detail*/
 .productDetailBody{
     width: 100%;

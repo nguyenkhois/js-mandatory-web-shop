@@ -1,9 +1,12 @@
 function renderProduct(objProduct){
     //Create a new product content
-    let $productContentHTML = `<img src="../images/${objProduct.productImageUrl}">
-                               <p class="product_title"><a href="product_detail.html?id=${objProduct.productId}" class="product_link">${objProduct.productName}</a></p>
-                               <p>${objProduct.productDescription}</p>
-                               <p class="product_price">${objProduct.productPrice} kr</p>`;
+    let description = objProduct.Description;
+    description = description.limitWords(20);
+
+    let $productContentHTML = `<img class="product_image" src="${objProduct.Image}">
+                               <p class="product_title"><a href="product_detail.html?id=${objProduct.Id}" class="product_link">${objProduct.Name}</a></p>
+                               <p>${description}...</p>
+                               <p class="product_price">${objProduct.Price} kr</p>`;
     //Create a button
     let $productButton = $("<button>").text("Add to cart");
     $productButton.addClass("button button_buy");

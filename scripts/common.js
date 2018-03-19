@@ -17,7 +17,7 @@ function retrieveCart() {
 }
 function addToCart(objProduct, quantity) {
     let arrCart = retrieveCart();
-    let i = OwnObjectArray.findIndex(arrCart,'productId',objProduct.productId);
+    let i = OwnObjectArray.findIndex(arrCart,'Id',objProduct.Id);
 
     if (arrCart.length > 0 && i > -1)
         arrCart[i].productQuantity += quantity;
@@ -27,18 +27,18 @@ function addToCart(objProduct, quantity) {
     }
 
     storeCart(arrCart);
-    alert(objProduct.productName + " added to cart!");
+    alert(objProduct.Name + " added to cart!");
     updateCartStatus(); //Update icon shopping cart on products.html page
 }
 function renderItemInCart(objProduct) {
     //Create HTML content
-    let $cartItemName = `<td><a href="product_detail.html?id=${objProduct.productId}" class="product_link">${objProduct.productName}</a></td>`;
+    let $cartItemName = `<td><a href="product_detail.html?id=${objProduct.Id}" class="product_link">${objProduct.Name}</a></td>`;
 
     let $cartItemQuantityInput = $("<input>").attr({"type":"number", "min":"1", "max":"10","value":objProduct.productQuantity});
     let $cartItemQuantity = $("<td>").addClass("cartItemNumber").append($cartItemQuantityInput);
 
-    let $cartItemPrice = `<td class="cartItemNumber">${objProduct.productPrice}</td>`;
-    let $cartItemTotal = `<td class="cartItemNumber">${objProduct.productPrice * objProduct.productQuantity}</td>`;
+    let $cartItemPrice = `<td class="cartItemNumber">${objProduct.Price}</td>`;
+    let $cartItemTotal = `<td class="cartItemNumber">${objProduct.Price * objProduct.productQuantity}</td>`;
 
     let $cartItemRemoveIcon = $("<img>").attr("src","../images/remove-from-cart.png").addClass("cartItemRemove");
     let $cartItemRemove = $("<td>").append($cartItemRemoveIcon);
@@ -78,7 +78,7 @@ function showCart() {
     //Render all items in cart
     for (j in arrCart){
         renderItemInCart(arrCart[j]);
-        sumCart += arrCart[j].productPrice * arrCart[j].productQuantity;
+        sumCart += arrCart[j].Price * arrCart[j].productQuantity;
     }
 
     //Render sum
@@ -103,7 +103,7 @@ function updateCartStatus() {
 }
 function updateCart(objProduct, quantity) {
     let arrCart = retrieveCart();
-    let i = OwnObjectArray.findIndex(arrCart,'productId',objProduct.productId);
+    let i = OwnObjectArray.findIndex(arrCart,'Id',objProduct.Id);
 
     if (arrCart.length > 0 && i > -1)
         arrCart[i].productQuantity = quantity;
@@ -113,7 +113,7 @@ function updateCart(objProduct, quantity) {
 }
 function deleteItemInCart(objProduct) {
     let arrCart = retrieveCart();
-    let i = OwnObjectArray.findIndex(arrCart,'productId',objProduct.productId);
+    let i = OwnObjectArray.findIndex(arrCart,'Id',objProduct.Id);
 
     if (arrCart.length > 0 && i > -1)
         arrCart.splice(i,1);

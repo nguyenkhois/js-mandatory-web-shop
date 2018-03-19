@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../external-libraries/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+
+    <div id="dspResult"></div>
+    <div id="systemStatus"></div>
+
+<script>
+    $(document).ready(function () {
+        let urlProducts = "http://demo.edument.se/api/products";
+        $.get(urlProducts,function (data, status) {
+            console.log(Array.isArray(data));
+            console.log(data[0]);
+            $("#systemStatus").html("Your request is " + status);
+        });
+    });
+</script>
+
+</body>
+</html>

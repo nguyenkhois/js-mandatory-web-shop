@@ -8,10 +8,10 @@ let btnSendReview = $("#btnSendReview");
 //FUNCTIONS
 function renderProductDetail(objProduct){
     //Create a new product content
-    let $productContentHTML = `<img src="${productImageUrl}${objProduct.productImageUrl}">
-                               <p class="product_title">${objProduct.productName}</p>
-                               <p>${objProduct.productDescription}</p>
-                               <p class="product_price">${objProduct.productPrice} kr</p>`;
+    let $productContentHTML = `<img src="${objProduct.Image}">
+                               <p class="product_title">${objProduct.Name}</p>
+                               <p>${objProduct.Description}</p>
+                               <p class="product_price">${objProduct.Price} kr</p>`;
     //Create a button
     let $productButton = $("<button>").text("Add to cart");
     $productButton.addClass("button button_buy");
@@ -25,7 +25,7 @@ function renderProductDetail(objProduct){
     dspProductDetail.append($productContent);
 
     //Passing this object as the argument to a onclick function
-    $($productButton).click(function(){addToCart(objProduct);});
+    $($productButton).click(function(){addToCart(objProduct,1);});
 }
 function retrieveReviews() {
     if (typeof(Storage) !== "undefined")
@@ -48,7 +48,7 @@ function storeReviews(objProductReviews) {
 function renderProductReview(objReview) {
     //Get starts
     let startImage;
-    switch (parseInt(objReview.rating)){
+    switch (parseInt(objReview.Rating)){
         case 1:
             startImage = star1;
             break;
@@ -78,7 +78,7 @@ function renderProductReview(objReview) {
 }
 function getProductReviews(productId) {
     let allProductsReviews = retrieveReviews(); //returns an object array with all reviews for all products
-    let productReviews = OwnObjectArray.filterByProperty(allProductsReviews,'productId',productId); //returns only this product reviews
+    let productReviews = OwnObjectArray.filterByProperty(allProductsReviews,'Id',productId); //returns only this product reviews
 
     dspReviews.html(""); //clear all older reviews before render newest reviews
     let i;
@@ -108,14 +108,14 @@ function checkReviewForm() {
 
 //MAIN
 let queryProductID = parseInt(getParamFromUrl('id'));
-let productIndex = OwnObjectArray.findIndex(arrProducts,'productId',queryProductID);
+let productIndex = OwnObjectArray.findIndex(arrProducts,'Id',queryProductID);
 let objProduct;
 
 productIndex >= 0 ? objProduct = arrProducts[productIndex] : objProduct = null;
-if (objProduct !== null && objProduct.productId === queryProductID){
+if (objProduct !== null && objProduct.Id === queryProductID){
     renderProductDetail(objProduct);
     updateCartStatus(); //get current cart state
-    getProductReviews(objProduct.productId); //get all reviews for this product
+    getProductReviews(objProduct.Id); //get all reviews for this product
 
     //Button send preview
     btnSendReview.click(function (event) {
@@ -134,7 +134,7 @@ if (objProduct !== null && objProduct.productId === queryProductID){
 
             let objReview = {
                 reviewId: maxReviewId,
-                productId: objProduct.productId,
+                Id: objProduct.Id,
                 name: customerName.val().toText(),
                 comment: customerComment.val().toText(),
                 rating: customerRating
@@ -143,7 +143,7 @@ if (objProduct !== null && objProduct.productId === queryProductID){
             allProductsReviews.unshift(objReview);
             storeReviews(allProductsReviews);
             clearReviewForm();
-            getProductReviews(objProduct.productId);
+            getProductReviews(objProduct.Id);
         }
     });
 }else
