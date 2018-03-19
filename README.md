@@ -1,5 +1,5 @@
 # Simple webshop
-* [Online demo](https://www.vlexikon.com/demo/js-mandatory-web-shop-3/views/products.html)
+* [Online demo for mandatory 3](https://www.vlexikon.com/demo/js-mandatory-web-shop-3/views/products.html)
 
 ## Changelog
 ### Version 3.1.2 (2018-03-19)
