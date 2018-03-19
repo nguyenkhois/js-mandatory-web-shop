@@ -2,6 +2,10 @@
 * [Online demo](https://www.vlexikon.com/demo/js-mandatory-web-shop-3/views/products.html)
 
 ## Changelog
+### Version 3.1.2 (2018-03-19)
+* Improved shopping cart
+* Added a function for the user can change quantity
+* Added a function for the user can delete a product out of shopping cart
 ### Version 3.1.1 (2018-03-17)
 * Added custom prototype for the String global object (String.prototype.toText())
 * Refactored plain JavaScript to jQuery (without libraries)

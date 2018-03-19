@@ -1,4 +1,4 @@
-function buildAProduct(objProduct){
+function renderProduct(objProduct){
     //Create a new product content
     let $productContentHTML = `<img src="../images/${objProduct.productImageUrl}">
                                <p class="product_title"><a href="product_detail.html?id=${objProduct.productId}" class="product_link">${objProduct.productName}</a></p>
@@ -17,12 +17,12 @@ function buildAProduct(objProduct){
     $("#dspProductList").append($productContent);
 
     //Passing this object as the argument to a onclick function
-    $($productButton).click(function(){addToCart(objProduct);});
+    $($productButton).click(function(){addToCart(objProduct,1);}); //add this product to cart with quantity is 1 item
 }
 function showProductList() {
     let i;
     for (i in arrProducts)
-        buildAProduct(arrProducts[i]);
+        renderProduct(arrProducts[i]);
 }
 
 //MAIN

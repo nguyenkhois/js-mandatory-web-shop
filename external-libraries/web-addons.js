@@ -88,6 +88,13 @@ String.prototype.toText = function(){
                .replace(/\'/g,"&apos;")
                .replace(/\"/g, "&quot;");
 };
+String.prototype.limitWords = function(limitNumber){
+    try{
+        limitNumber = parseInt(limitNumber) || 0;
+        if (limitNumber > 0 && this.length > 0)
+            return this.split(" ").slice(0,limitNumber).join(" ");
+    }catch(e){}
+};
 
 function getParamFromUrl(param){
     try{
