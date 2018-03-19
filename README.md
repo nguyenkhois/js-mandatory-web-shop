@@ -2,6 +2,8 @@
 * [Online demo for mandatory 4](https://www.vlexikon.com/demo/js-mandatory-web-shop-4/views/products.html)
 
 ## Changelog
+### Version 4.1 (2018-03-19)
+* Refactored JS code for importing data from API
 ### Version 4.0 (2018-03-19)
 * Begin with mandatory 4
 ### Version 3.1.2 (2018-03-19)
