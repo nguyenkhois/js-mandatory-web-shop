@@ -38,7 +38,7 @@ function renderItemInCart(objProduct) {
     let $cartItemQuantity = $("<td>").addClass("cartItemNumber").append($cartItemQuantityInput);
 
     let $cartItemPrice = `<td class="cartItemNumber">${objProduct.Price}</td>`;
-    let $cartItemTotal = `<td class="cartItemNumber">${objProduct.Price * objProduct.productQuantity}</td>`;
+    let $cartItemTotal = `<td class="cartItemNumber">${parseFloat(objProduct.Price * objProduct.productQuantity).toFixed(3)}</td>`;
 
     let $cartItemRemoveIcon = $("<img>").attr("src","../images/remove-from-cart.png").addClass("cartItemRemove");
     let $cartItemRemove = $("<td>").append($cartItemRemoveIcon);
@@ -82,7 +82,7 @@ function showCart() {
     }
 
     //Render sum
-    let sum = $("<p>").html("<span>SUM: " + sumCart + " kr</span>").addClass("cartSum");
+    let sum = $("<p>").html("<span>SUM: " + parseFloat(sumCart).toFixed(3) + " kr</span>").addClass("cartSum");
     arShoppingCart.append(sum);
 }
 function clearCart() {

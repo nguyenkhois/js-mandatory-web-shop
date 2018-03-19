@@ -23,9 +23,15 @@ function renderProduct(objProduct){
     $($productButton).click(function(){addToCart(objProduct,1);}); //add this product to cart with quantity is 1 item
 }
 function showProductList() {
-    let i;
-    for (i in arrProducts)
-        renderProduct(arrProducts[i]);
+    $.get(urlProducts)
+        .done(function (arrProducts) {
+            if (Array.isArray(arrProducts)){ //Check input data before using
+                let i;
+                for (i in arrProducts)
+                    renderProduct(arrProducts[i]);
+            }
+        })
+        .fail(function (error) {console.log(error)});
 }
 
 //MAIN
