@@ -2,6 +2,8 @@
 * [Online demo for mandatory 4](https://www.vlexikon.com/demo/js-mandatory-web-shop-4/views/products.html)
 
 ## Changelog
+### Version 4.2.1 (2018-03-20)
+* Improved checkout module with JS validation
 ### Version 4.2 (2018-03-20)
 * Completed mandatory 4
 * Open console when you send your reviews or your orders for result.
