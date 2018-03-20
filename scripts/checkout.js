@@ -68,28 +68,31 @@ uComments.keypress(function(){limitInputLength("txtComments",1000);});
 btnCheckout.click(function () {
     if (validationUserForm()){
         //Send data to API
-        let order = {
-            Id: '',
-            FirstName: uFirstname.val().toText(),
-            LastName: uLastname.val().toText(),
-            Email: uEmail.val().toText(),
-            Phone: uPhoneNumber.val().toText(),
-            StreetAddress: uAddress.val().toText(),
-            ZipCode: uZipCode.val().toText(),
-            City: uCity.val().toText(),
-            Comment: uComments.val().toText(),
-            OrderItems: retrieveCart()
-        };
+        let cart = retrieveCart();
+        if (cart.length > 0){
+            let order = {
+                Id: '',
+                FirstName: uFirstname.val().toText(),
+                LastName: uLastname.val().toText(),
+                Email: uEmail.val().toText(),
+                Phone: uPhoneNumber.val().toText(),
+                StreetAddress: uAddress.val().toText(),
+                ZipCode: uZipCode.val().toText(),
+                City: uCity.val().toText(),
+                Comment: uComments.val().toText(),
+                OrderItems: cart
+            };
 
-        $.post(urlOrders,order)
-            .done(function (data) {
-                console.log("Your data have been sent successfully: ");
-                console.log(data);
-            })
-            .fail(function (error) {console.log("Error found: " + error)});
+            $.post(urlOrders,order)
+                .done(function (data) {
+                    console.log("Your data have been sent successfully: ");
+                    console.log(data);
+                })
+                .fail(function (error) {console.log("Error found: " + error)});
 
-        clearCart();
-        clearOrderForm();
+            clearCart();
+            clearOrderForm();
+        }
     }
 });
 
