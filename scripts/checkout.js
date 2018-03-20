@@ -48,6 +48,10 @@ function validationUserForm(){
         return true;
     }
 }
+function clearOrderForm(){
+    $("input").val("");
+    $("textarea").val("");
+}
 
 //Limit input length by addEventListener
 uFirstname.keypress(function(){limitInputLength("txtFirstname",100);});
@@ -66,14 +70,14 @@ btnCheckout.click(function () {
         //Send data to API
         let order = {
             Id: '',
-            FirstName: uFirstname.val(),
-            LastName: uLastname.val(),
-            Email: uEmail.val(),
-            Phone: uPhoneNumber.val(),
-            StreetAddress: uAddress.val(),
-            ZipCode: uZipCode.val(),
-            City: uCity.val(),
-            Comment: uComments.val(),
+            FirstName: uFirstname.val().toText(),
+            LastName: uLastname.val().toText(),
+            Email: uEmail.val().toText(),
+            Phone: uPhoneNumber.val().toText(),
+            StreetAddress: uAddress.val().toText(),
+            ZipCode: uZipCode.val().toText(),
+            City: uCity.val().toText(),
+            Comment: uComments.val().toText(),
             OrderItems: retrieveCart()
         };
 
@@ -85,6 +89,7 @@ btnCheckout.click(function () {
             .fail(function (error) {console.log("Error found: " + error)});
 
         clearCart();
+        clearOrderForm();
     }
 });
 
