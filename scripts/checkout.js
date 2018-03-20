@@ -70,6 +70,7 @@ btnCheckout.click(function () {
         //Send data to API
         let cart = retrieveCart();
         if (cart.length > 0){
+            //Id will be set automatically when posting a new data to the server
             let order = {
                 Id: '',
                 FirstName: uFirstname.val().toText(),

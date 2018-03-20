@@ -103,6 +103,8 @@ if (queryProductID > 0){
                 if (checkReviewForm()){
                     //Get current review
                     let customerRating = $("input[name=customerRating]:checked").val();
+
+                    //Id will be set automatically when posting a new data to the server
                     let objReview = {
                         Id: '',
                         ProductID: objProduct.Id,
