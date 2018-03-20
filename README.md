@@ -2,6 +2,9 @@
 * [Online demo for mandatory 4](https://www.vlexikon.com/demo/js-mandatory-web-shop-4/views/products.html)
 
 ## Changelog
+### Version 4.2 (2018-03-20)
+* Completed mandatory 4
+* Open console when you send your reviews or your orders for result.
 ### Version 4.1 (2018-03-19)
 * Refactored JS code for importing data from API
 ### Version 4.0 (2018-03-19)

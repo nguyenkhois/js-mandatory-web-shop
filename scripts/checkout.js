@@ -45,7 +45,6 @@ function validationUserForm(){
         return false;
     }else{
         alert("SUCCEED! Your order has been sent!");
-        clearCart();
         return true;
     }
 }
@@ -62,7 +61,32 @@ uZipCode.keypress(function(){limitInputLength("txtZipCode",10);});
 uCity.keypress(function(){limitInputLength("txtCity",50);});
 uComments.keypress(function(){limitInputLength("txtComments",1000);});
 
-btnCheckout.click(validationUserForm);
+btnCheckout.click(function () {
+    if (validationUserForm()){
+        //Send data to API
+        let order = {
+            Id: '',
+            FirstName: uFirstname.val(),
+            LastName: uLastname.val(),
+            Email: uEmail.val(),
+            Phone: uPhoneNumber.val(),
+            StreetAddress: uAddress.val(),
+            ZipCode: uZipCode.val(),
+            City: uCity.val(),
+            Comment: uComments.val(),
+            OrderItems: retrieveCart()
+        };
+
+        $.post(urlOrders,order)
+            .done(function (data) {
+                console.log("Your data have been sent successfully: ");
+                console.log(data);
+            })
+            .fail(function (error) {console.log("Error found: " + error)});
+
+        clearCart();
+    }
+});
 
 //MAIN
 showCart();
