@@ -16,7 +16,7 @@ $(document).ready(function(){
     let orderUrl = urlOrders + orderId;
     $.get(orderUrl)
         .done(function (data){
-            //console.log("Get successfully!",typeof data,data);
+            console.log("Get successfully!",typeof data,data);
             if (typeof data === "object" && data !== null){
                 //Create customer info
                 let customerInfo = `<table>
