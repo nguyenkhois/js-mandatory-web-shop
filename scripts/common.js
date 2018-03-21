@@ -32,7 +32,7 @@ function addToCart(objProduct, quantity) {
 }
 function renderItemInCart(objProduct) {
     //Create HTML content
-    let $cartItemName = `<td><a href="product_detail.html?id=${objProduct.Id}" class="product_link">${objProduct.Name}</a></td>`;
+    let $cartItemName = `<td><a href="product_detail.html?id=${objProduct.Id}" class="item_link">${objProduct.Name}</a></td>`;
 
     let $cartItemQuantityInput = $("<input>").attr({"type":"number", "min":"1", "max":"10","value":objProduct.productQuantity});
     let $cartItemQuantity = $("<td>").addClass("cartItemNumber").append($cartItemQuantityInput);

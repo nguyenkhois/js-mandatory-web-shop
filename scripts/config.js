@@ -9,7 +9,7 @@ let namePattern = /^[a-zA-Z]+(([. -][a-zA-Z])?[a-zA-Z]*)*$/g;
 let mailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
 //For API
-let urlProducts = "http://demo.edument.se/api/products";
+let urlProducts = "http://demo.edument.se/api/products/";
 let urlProductDetail = "http://demo.edument.se/api/products/";
-let urlReviews = "http://demo.edument.se/api/reviews";
-let urlOrders = "http://demo.edument.se/api/orders";
+let urlReviews = "http://demo.edument.se/api/reviews/";
+let urlOrders = "http://demo.edument.se/api/orders/";

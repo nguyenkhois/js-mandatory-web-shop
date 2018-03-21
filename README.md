@@ -2,6 +2,9 @@
 * [Online demo for mandatory 4](https://www.vlexikon.com/demo/js-mandatory-web-shop-4/views/products.html)
 
 ## Changelog
+### Version 4.3 (2018-03-21)
+* Added Orders module (view all orders and order detail)
+* Improved JS code for effect and performance
 ### Version 4.2.1 (2018-03-20)
 * Improved checkout module with JS validation
 ### Version 4.2 (2018-03-20)
