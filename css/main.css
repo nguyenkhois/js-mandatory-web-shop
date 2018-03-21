@@ -6,6 +6,11 @@ main{padding: 5px;}
 
 #container{width:100%;margin: auto;padding: 0;display: flex;flex-direction: column;align-items: center;}
 
+/*Styles for all tables*/
+.table-list{border: 1px solid #686868;border-collapse: collapse;width: 100%;}
+.table-list th, .table-list td{border: 1px solid #686868;height: 30px;padding: 5px;}
+.table-list th{background: #f0f0f0;}
+
 /* Menu */
 #menu{position: relative;display:inline-block;height: 35px;z-index: 1000;}
 #menu:hover #menu-content{visibility: visible;}
@@ -118,9 +123,6 @@ main{padding: 5px;}
 
 /* Checkout */
 #dspCheckout{margin-top: 50px;}
-#tbShoppingCart{border: 1px solid #686868;border-collapse: collapse;width: 100%;}
-#tbShoppingCart th,#tbShoppingCart td{border: 1px solid #686868;height: 30px;padding: 5px;}
-#tbShoppingCart th{background: #f0f0f0;}
 
 .cartItem{}
 .cartItemNumber{text-align: right;}
@@ -165,6 +167,10 @@ main{padding: 5px;}
 
 .footer{background: #2d6aa5;width: 100%;}
 .footer_text{text-align: center;color: #fcfcfc;}
+
+/*Orders*/
+
+/*End of orders*/
 
 /* For screen size are over 768px */
 @media only screen and (min-width: 768px){

@@ -57,14 +57,13 @@ function renderItemInCart(objProduct) {
 function showCart() {
     let arrCart = retrieveCart();
     let sumCart = 0;
-    let j;
     let arShoppingCart = $("#arShoppingCart");
 
     //Clear all before render
     arShoppingCart.html("");
 
     //Render header
-    let tbShoppingCart = `<table id="tbShoppingCart">
+    let tbShoppingCart = `<table id="tbShoppingCart" class="table-list">
                         <tr>
                             <th>Product</th>
                             <th>Quantity</th>
@@ -76,7 +75,7 @@ function showCart() {
     arShoppingCart.append(tbShoppingCart);
 
     //Render all items in cart
-    for (j in arrCart){
+    for (let j in arrCart){
         renderItemInCart(arrCart[j]);
         sumCart += arrCart[j].Price * arrCart[j].productQuantity;
     }
@@ -95,8 +94,7 @@ function updateCartStatus() {
     let arrCart = retrieveCart();
     let quantity = 0;
 
-    let j;
-    for (j in arrCart)
+    for (let j in arrCart)
         quantity += arrCart[j].productQuantity;
 
     $("#dspShoppingCartStatus").text(quantity.toString());
