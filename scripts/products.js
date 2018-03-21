@@ -1,6 +1,6 @@
 $(document).ready(function(){
     //Get HTML elements
-    let dspProductList = ("#dspProductList");
+    let dspProductList = $("#dspProductList");
 
     //Functions
     function renderProduct(objProduct){
