@@ -1,8 +1,8 @@
 # Simple webshop
 * Mandatory 1 (master branch - [Demo](https://nguyenkhois.github.io/js-mandatory-web-shop/views/))
-* Mandatory 2 ([mandatory2 branch](https://github.com/nguyenkhois/js-mandatory-web-shop/tree/mandatory2) - [Demo](demo/mandatory2/views/products.html))
-* Mandatory 3 ([mandatory3 branch](https://github.com/nguyenkhois/js-mandatory-web-shop/tree/mandatory3) - [Demo](demo/mandatory3/views/products.html))
-* Mandatory 4 ([mandatory4 branch](https://github.com/nguyenkhois/js-mandatory-web-shop/tree/mandatory4) - [Demo](demo/mandatory4/views/products.html))
+* Mandatory 2 ([mandatory2 branch](https://github.com/nguyenkhois/js-mandatory-web-shop/tree/mandatory2) - [Demo](https://nguyenkhois.github.io/js-mandatory-web-shop/demo/mandatory2/views/products.html))
+* Mandatory 3 ([mandatory3 branch](https://github.com/nguyenkhois/js-mandatory-web-shop/tree/mandatory3) - [Demo](https://nguyenkhois.github.io/js-mandatory-web-shop/demo/mandatory3/views/products.html))
+* Mandatory 4 ([mandatory4 branch](https://github.com/nguyenkhois/js-mandatory-web-shop/tree/mandatory4) - [Demo](https://nguyenkhois.github.io/js-mandatory-web-shop/demo/mandatory4/views/products.html))
 
 ## Changelog
 ### Version 1.2 (2018-02-18)
