@@ -1,6 +1,6 @@
 # Simple webshop (mandatory 4)
 * [Online demo for mandatory4](https://www.vlexikon.com/demo/js-mandatory-web-shop-4/views/products.html)
-* Accept "load unsafe scripts" when your web browser question because this page download data from an API and not use https
+* Accept "load unsafe scripts" on your web browser because this page download data from an API and not use https
 
 ## Changelog
 ### Version 4.3 (2018-03-21)
