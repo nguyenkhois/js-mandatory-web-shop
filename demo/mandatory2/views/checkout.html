@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple web shop</title>
+    <link rel="stylesheet" href="../css/web-addons.css">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <div id="container">
+        <header class="bg-navy">
+            <nav id="menu">
+                <div id="three-lines">
+                    <div id="three-lines-1" class="three-lines"></div>
+                    <div id="three-lines-2" class="three-lines"></div>
+                    <div id="three-lines-3" class="three-lines"></div>
+                </div>
+
+                <ul id="menu-content">
+                    <li class="menu-items"><a href="#">Home</a></li>
+                    <li class="menu-items"><a href="products.html">Products</a></li>
+                    <li class="menu-items"><a href="checkout.html">Checkout</a></li>
+                    <li class="menu-items"><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="miniTitle">Simple web shop</div>
+        </header>
+
+        <main>
+            <p class="main_title">CHECKOUT</p>
+            <section id="dspShoppingCart">
+                <article>
+                    <table id="tbShoppingCart">
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price (kr)</th>
+                            <th>X</th>
+                        </tr>
+                    </table>
+                </article>
+            </section>
+
+            <section id="dspCheckout">
+                <article>
+                    <table id="tbCheckout">
+                        <tr>
+                            <th colspan="2">CUSTOMER INFORMATION</th>
+                        </tr>
+                        <tr>
+                            <td><label for="txtFirstname">First name</label></td>
+                            <td><input id="txtFirstname" type="text" class="checkoutInput"><span class="required">*</span></td>
+                        </tr>
+                        <tr>
+                            <td><label for="txtLastname">Last name</label></td>
+                            <td><input id="txtLastname" type="text" class="checkoutInput"><span class="required">*</span></td>
+                        </tr>
+                        <tr>
+                            <td><label for="txtEmail">Email</label></td>
+                            <td><input id="txtEmail" type="email" class="checkoutInput"><span class="required">*</span></td>
+                        </tr>
+                        <tr>
+                            <td><label for="txtPhoneNumber">Phone number</label></td>
+                            <td><input id="txtPhoneNumber" type="number" class="checkoutInput"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="txtAddress">Street address</label></td>
+                            <td><input id="txtAddress" type="text" class="checkoutInput"><span class="required">*</span></td>
+                        </tr>
+                        <tr>
+                            <td><label for="txtZipCode">Zip code</label></td>
+                            <td><input id="txtZipCode" type="number" class="checkoutInput"><span class="required">*</span></td>
+                        </tr>
+                        <tr>
+                            <td><label for="txtCity">City</label></td>
+                            <td><input id="txtCity" type="text" class="checkoutInput"><span class="required">*</span></td>
+                        </tr>
+                        <tr>
+                            <td><label for="txtComments">Comments</label></td>
+                            <td><textarea name="" id="txtComments" class="checkoutInput checkoutComments"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><button id="btnCheckout" class="button button_order">Checkout</button></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">(<span class="required">*</span>) Required information</td>
+                        </tr>
+                    </table>
+                </article>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p class="footer_text">Created by Khoi Le - 2018-02</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../scripts/common.js"></script>
+    <script src="../scripts/checkout.js"></script>
+</body>
+</html>

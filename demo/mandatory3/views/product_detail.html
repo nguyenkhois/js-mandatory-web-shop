@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple web shop</title>
+    <script src="../external-libraries/jquery-3.3.1.min.js"></script>
+    <script src="../external-libraries/web-addons.js"></script>
+    <link rel="stylesheet" href="../external-libraries/web-addons.css">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <div id="container">
+        <header class="bg-navy">
+            <nav id="menu">
+                <div id="three-lines">
+                    <div id="three-lines-1" class="three-lines"></div>
+                    <div id="three-lines-2" class="three-lines"></div>
+                    <div id="three-lines-3" class="three-lines"></div>
+                </div>
+                <ul id="menu-content">
+                    <li class="menu-items"><a href="#">Home</a></li>
+                    <li class="menu-items"><a href="products.html">Products</a></li>
+                    <li class="menu-items"><a href="checkout.html">Checkout</a></li>
+                    <li class="menu-items"><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="miniTitle">Simple web shop</div>
+        </header>
+
+        <main>
+            <div id="main_title"><p class="main_title"></p></div>
+            <div id="iconShoppingCart"><span id="dspShoppingCartStatus"></span><img src="../images/icon-cart.png" alt="Your shopping cart"></div>
+
+            <div id="productDetailBody" class="productDetailBody">
+                <section id="dspProductDetail"></section>
+                <section id="SendReview" class="box box-default sendReview">
+                    <form id="frmSendReview" action="#" class="frm-sendReview">
+                        <h3>Send a review</h3>
+                        <table>
+                            <tr>
+                                <td>Rating</td>
+                                <td>
+                                    <span>
+                                        1<input type="radio" name="customerRating" value="1">
+                                        2<input type="radio" name="customerRating" value="2">
+                                        3<input type="radio" name="customerRating" value="3">
+                                        4<input type="radio" name="customerRating" value="4">
+                                        5<input type="radio" name="customerRating" value="5" checked>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="customerName">Your name</label></td>
+                                <td><input id="customerName" type="text" minlength="2" maxlength="20" class="reviewInput" required><span class="required">*</span></td>
+                            </tr>
+                            <tr>
+                                <td><label for="customerComment">Comment</label></td>
+                                <td><textarea name="" id="customerComment"  minlength="2" maxlength="200" cols="30" rows="10" class="reviewInput" required></textarea><span class="required">*</span></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><button id="btnSendReview" type="button" class="button button_send_review">Send</button></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">(<span class="required">*</span>) Required information</td>
+                            </tr>
+                        </table>
+                    </form>
+                </section>
+
+                <h3>Reviews</h3>
+                <section id="dspReviews">
+                </section>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p class="footer_text">Created by Khoi Le - 2018-02</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../scripts/config.js"></script>
+    <script src="../scripts/asset.js"></script>
+    <script src="../scripts/common.js"></script>
+    <script src="../scripts/product_detail.js"></script>
+</body>
+</html>

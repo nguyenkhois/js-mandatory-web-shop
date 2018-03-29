@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple web shop</title>
+    <script src="../external-libraries/jquery-3.3.1.min.js"></script>
+    <script src="../external-libraries/web-addons.js"></script>
+    <link rel="stylesheet" href="../external-libraries/web-addons.css">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <div id="container">
+        <header class="bg-navy">
+            <nav id="menu">
+                <div id="three-lines">
+                    <div id="three-lines-1" class="three-lines"></div>
+                    <div id="three-lines-2" class="three-lines"></div>
+                    <div id="three-lines-3" class="three-lines"></div>
+                </div>
+                <ul id="menu-content">
+                    <li class="menu-items"><a href="#">Home</a></li>
+                    <li class="menu-items"><a href="products.html">Products</a></li>
+                    <li class="menu-items"><a href="checkout.html">Checkout</a></li>
+                    <li class="menu-items"><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="miniTitle">Simple web shop</div>
+        </header>
+
+        <main>
+            <div id="main_title"><p class="main_title">PRODUCTS</p></div>
+            <div id="iconShoppingCart"><span id="dspShoppingCartStatus"></span><img src="../images/icon-cart.png" alt="Your shopping cart"></div>
+            <section id="dspProductList"></section>
+        </main>
+
+        <footer class="footer">
+            <p class="footer_text">Created by Khoi Le - 2018-02</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../scripts/asset.js"></script>
+    <script src="../scripts/common.js"></script>
+    <script src="../scripts/products.js"></script>
+</body>
+</html>
